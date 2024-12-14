@@ -162,7 +162,7 @@ if __name__ == '__main__':
     tpps_list = pam.tpps_list
     tapzds_list = pam.tapzds_list
     tapzps_list = pam.tapzps_list
-    for i in [0]:
+    for i in [4]:
         print ('Mc=',Mc)
         pressure = pressures[i]
 

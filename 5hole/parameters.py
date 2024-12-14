@@ -87,7 +87,7 @@ eta = 0.01
 Lanczos_maxiter = 600
 
 # restriction on variational space
-reduce_VS = 1
+reduce_VS = 0
 
 if_H0_rotate_byU = 1
 basis_change_type = 'd_double'  # 'all_states' or 'd_double'
