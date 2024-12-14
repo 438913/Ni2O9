@@ -116,7 +116,7 @@ def compute_Aw_main(ANi,ACu,epCu,epNi,epbilayer,tpd,tpp,tapzd,tapzp,tz_a1a1,tz_b
         ####################################################################################
         # compute GS only for turning on full interactions
         if pam.if_get_ground_state==1:
-            vals, vecs = gs.get_ground_state(H_bond, VS, S_Ni_val,Sz_Ni_val,S_Cu_val,Sz_Cu_val,bonding_val)
+            gs.get_ground_state(H_bond, VS, S_Ni_val,Sz_Ni_val,S_Cu_val,Sz_Cu_val,bonding_val)
         print("ground state %s seconds ---" % (time.time() - start_time))                   
                 
 #             if Norb==8:
@@ -162,7 +162,7 @@ if __name__ == '__main__':
     tpps_list = pam.tpps_list
     tapzds_list = pam.tapzds_list
     tapzps_list = pam.tapzps_list
-    for i in [0]:
+    for i in [4]:
         print ('Mc=',Mc)
         pressure = pressures[i]
 

@@ -41,7 +41,7 @@ Norb = 5
 if Norb == 8 or Norb == 5:
 
     tpds_list = [1.38, 1.43, 1.46, 1.52, 1.58]
-    # tpds_list = [1.2] * 5
+    # tpds_list = [5.0] * 5
 
     tpps_list = [0.537, 0.548, 0.554, 0.566, 0.562]
 
@@ -87,7 +87,7 @@ eta = 0.01
 Lanczos_maxiter = 600
 
 # restriction on variational space
-reduce_VS = 1
+reduce_VS = 0
 
 if_H0_rotate_byU = 1
 basis_change_type = 'd_double'  # 'all_states' or 'd_double'
