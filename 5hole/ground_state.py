@@ -15,6 +15,9 @@ import variational_space as vs
 import utility as util
 import lanczos
 
+os.makedirs('./data', exist_ok=True)
+
+
 def reorder_z(slabel):
     '''
     reorder orbs such that d orb is always before p orb and Ni layer (z=1) before Cu layer (z=0)
@@ -158,15 +161,18 @@ def state_classification(state_param):
                     orb_type[2] += simple_orb[orb]
             elif orb in pam.O_orbs:
                 O_bottom += 1
-    dL_type[0] = f'd{10 - Ni_top}'
-    if O_top != 0:
-        dL_type[0] += 'L' if O_top == 1 else f'L{O_top}'
-    if O_bilayer != 0:
-        dL_type[1] = f'O{O_bilayer}'
-    dL_type[2] = f'd{10 - Ni_bottom}'
-    if O_bottom != 0:
-        dL_type[2] += 'L' if O_bottom == 1 else f'L{O_bottom}'
-    dL_type = [x for x in dL_type if x != 'empty']
+    if Ni_top + Ni_bottom + O_bilayer == 0:
+        dL_type = [f'L{O_top}', f'L{O_bottom}']
+    else:
+        dL_type[0] = f'd{10 - Ni_top}'
+        if O_top != 0:
+            dL_type[0] += 'L' if O_top == 1 else f'L{O_top}'
+        if O_bilayer != 0:
+            dL_type[1] += 'O' if O_bilayer == 1 else f'O{O_bilayer}'
+        dL_type[2] = f'd{10 - Ni_bottom}'
+        if O_bottom != 0:
+            dL_type[2] += 'L' if O_bottom == 1 else f'L{O_bottom}'
+        dL_type = [x for x in dL_type if x != 'empty']
     if len(dL_type) == 3:
         if dL_type[0] > dL_type[-1]:
             dL_type[0], dL_type[-1] = dL_type[-1], dL_type[0]
@@ -186,7 +192,10 @@ def state_classification(state_param):
         Sz = '+-3/2'
     else:
         Sz = '+-5/2'
-    orb_type = f'{orb_type},Sz={Sz}'
+    if orb_type == '':
+        orb_type = f'Sz={Sz}'
+    else:
+        orb_type = f'{orb_type},Sz={Sz}'
     return dL_type, orb_type
 
 
@@ -249,7 +258,7 @@ def get_ground_state(matrix, VS, S_Ni_val, Sz_Ni_val, S_Cu_val, Sz_Cu_val,bondin
         input_state = [(x1, y1, z1, orb1, s1), (x2, y2, z2, orb2, s2), (x3, y3, z3, orb3, s3),
                        (x4, y4, z4, orb4, s4), (x5, y5, z5, orb5, s5)]
         dL_type, orb_type = state_classification(input_state)
-        dL_type += f'({bonding})'
+        # dL_type += f'({bonding})'
         dL_orb_type = f'{dL_type},{orb_type}'
         if dL_type in dL_weight:
             dL_weight[dL_type] += weight
@@ -266,11 +275,12 @@ def get_ground_state(matrix, VS, S_Ni_val, Sz_Ni_val, S_Cu_val, Sz_Cu_val,bondin
         else:
             dL_orb_weight[dL_orb_type] = weight
             dL_orb_istate[dL_orb_type] = [istate]
+    text_dL_weight = open('./data/dL_weight', 'a')
     sorted_dL = sorted(dL_weight, key=dL_weight.get, reverse=True)
     i1 = 0
     for dL_type in sorted_dL:
         weight = dL_weight[dL_type]
-        if weight < 0.02:
+        if weight < 0.002:
             continue
         if i1 == 0:
             print('\n', end='')
@@ -278,6 +288,7 @@ def get_ground_state(matrix, VS, S_Ni_val, Sz_Ni_val, S_Cu_val, Sz_Cu_val,bondin
         else:
             print('\n\n', end='')
         print(f'{dL_type}: {weight}\n')
+        text_dL_weight.write(f'\t{dL_type}: {weight}\n')
         dL_orb_type_list = [f'{dL_type},{orb_type}' for orb_type in dL_orb[dL_type]]
         dL_orb_type_list = sorted(dL_orb_type_list, key=lambda x: dL_orb_weight[x], reverse=True)
         i2 = 0
@@ -329,3 +340,5 @@ def get_ground_state(matrix, VS, S_Ni_val, Sz_Ni_val, S_Cu_val, Sz_Cu_val,bondin
             # 处理最后一次循环
             if weight_num > 1:
                 print(f'\tthe same weight number = {weight_num}\n')
+    text_dL_weight.write('\n')
+    text_dL_weight.close()

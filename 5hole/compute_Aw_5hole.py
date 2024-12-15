@@ -158,7 +158,7 @@ if __name__ == '__main__':
     edNis = pam.edNis
     epNis_list = pam.epNis_list
     epbilayers_list = pam.epbilayers_list
-    tpds_list = pam.tpds_list
+    # tpds_list = pam.tpds_list
     tpps_list = pam.tpps_list
     tapzds_list = pam.tapzds_list
     tapzps_list = pam.tapzps_list
@@ -179,7 +179,8 @@ if __name__ == '__main__':
         epNis = [epNis_list[i]]
         epCus = epNis
         epbilayers = [epbilayers_list[i]]
-        tpds = [tpds_list[i]]
+        # tpds = [tpds_list[i]]
+        tpds = pam.tpds_list
         tpps = [tpps_list[i]]
         tapzds = [tapzds_list[i]]
         tapzps = [tapzps_list[i]]
@@ -250,6 +251,11 @@ if __name__ == '__main__':
                                                 for tpp in tpps:
                                                     for Upp in pam.Upps:
                                                         for Uss in pam.Usss:
+                                                            with open('./data/dL_weight', 'a') as f:
+                                                                f.write(f'A = {ANi}, B = {B}, C = {C}, ed = {edNi}\n'
+                                                                      f'ep = {epCu}, eo = {epNi}, tpp = {tpp}, tpo = {tapzp}, '
+                                                                        f'tz_a1a1 = {tz_a1a1}, tz_b1b1 = {tz_b1b1}, Upp = {Upp}, Uss = {Uss}\n'
+                                                                        f'tpd = {tpd}, tdo = {tapzd}\n')
                                                             print ('===================================================')
                                                             print ('ANi=',ANi, 'ACu=',ACu,'epCu=', epCu, 'epNi=',epNi,\
                                                                    ' tpd=',tpd,' tpp=',tpp,' Upp=',Upp,' Uss=',Uss ,'tz_a1a1=',tz_a1a1,'tz_b1b1=',tz_b1b1,\
