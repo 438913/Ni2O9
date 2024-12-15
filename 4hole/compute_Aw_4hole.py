@@ -158,7 +158,7 @@ if __name__ == '__main__':
     os.makedirs('data', exist_ok=True)
     for ANi in pam.ANis:
         ACu = ANi
-        for pressure in [0, 4, 8, 16, 29.5]:
+        for pressure in [29.5]:
             cp.pressure = pressure
             importlib.reload(pam)
             print('tdO=', pam.tapzds)

@@ -94,8 +94,8 @@ if Norb == 8 or Norb == 5:
         tapzds = np.linspace(1.61, 1.61, num=1, endpoint=True)
         tapzps = np.linspace(0.484, 0.484, num=1, endpoint=True)
     if pressure == 29.5:
-        tpds = np.linspace(1.58, 1.58, num=1, endpoint=True)
-        # tpds = [3.6]
+        # tpds = np.linspace(1.58, 1.58, num=1, endpoint=True)
+        tpds = [3.6]
 
         tpps = [0.562]
         tapzds = np.linspace(1.66, 1.66, num=1, endpoint=True)
