@@ -261,7 +261,7 @@ def get_ground_state(matrix, VS, S_Ni_val, Sz_Ni_val, S_Cu_val, Sz_Cu_val,bondin
             
             
             
-            if weight < 0.01 and weight > 0.001:
+            if weight > 0.01:
                 sumweight1=sumweight1+abs(vecs[i,k])**2
                 print (' state ', istate, ' ',orb1,s1,x1,y1,z1,' ',orb2,s2,x2,y2,z2,' ',orb3,s3,x3,y3,z3,' ',orb4,s4,x4,y4,z4,\
                    '\n S_Ni=', S_Ni_12, ',  Sz_Ni=', Sz_Ni_12, \
