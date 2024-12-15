@@ -420,7 +420,7 @@ class VariationalSpace:
                                                                 s1, s2, s3,s4 = f2()
 
                                                                 # assume two holes from undoped d9d9 is up-dn
-                                                                if pam.reduce_VS==1:
+                                                                if pam.reduce_VS==0:
                                                                     sss = sorted([s1,s2,s3,s4])
                                                                     if sss!=['dn','dn','up','up']:
                                                                         continue

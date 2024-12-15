@@ -121,7 +121,7 @@ def compute_Aw_main(ANi,ACu,epCu,epNi,epbilayer,tpd,tpp,tapzd,tapzp,tz_a1a1,tz_b
         ####################################################################################
         # compute GS only for turning on full interactions
         if pam.if_get_ground_state==1:
-            vals, vecs = gs.get_ground_state(H_bond, VS, S_Ni_val,Sz_Ni_val,S_Cu_val,Sz_Cu_val,bonding_val)
+            gs.get_ground_state(H_bond, VS, S_Ni_val,Sz_Ni_val,S_Cu_val,Sz_Cu_val,bonding_val)
                 
 #             if Norb==8:
 #                 util.write_GS('Egs_'+flowpeak+'.txt',A,ep,tpd,vals[0])
@@ -158,7 +158,7 @@ if __name__ == '__main__':
     os.makedirs('data', exist_ok=True)
     for ANi in pam.ANis:
         ACu = ANi
-        for pressure in [0, 4, 8, 16, 29.5]:
+        for pressure in [29.5]:
             cp.pressure = pressure
             importlib.reload(pam)
             print('tdO=', pam.tapzds)
@@ -241,6 +241,11 @@ if __name__ == '__main__':
                                                         print ('===================================================')
                                                         print ('ANi=',ANi, 'ACu=',ACu,'epCu=', epCu, 'epNi=',epNi, 'epbilayer=',epbilayer,\
                                                                ' tpd=',tpd,' tpp=',tpp,' Upp=',Upp ,'tz_a1a1=',tz_a1a1,'tz_b1b1=',tz_b1b1,'tapzd=',tapzd,'tapzp=',tapzp)
+                                                        with open('./data/dL_weight', 'a') as f:
+                                                            f.write(f'A = {ANi}, B = {B}, C = {C}, ed = {edNi}\n'
+                                                                    f'ep = {epCu}, eo = {epNi}, tpp = {tpp}, tpo = {tapzp}, '
+                                                                    f'tz_a1a1 = {tz_a1a1}, tz_b1b1 = {tz_b1b1}, Upp = {Upp}, Uss = {Uss}\n'
+                                                                    f'tpd = {tpd}, tdo = {tapzd}\n')
                                                         with open('./data/energy_spectrum', 'a') as f:
                                                             f.write(f'pressure = {pressure}, Sz = 0, A = {ANi}, Uoo = {Uss}, Upp = {Upp}\n'
                                                                     f'ep = {epCu}, eo = {epbilayer}, tpd = {tpd}, tpp = {tpp}, tdo = {tapzd}, tpo = {tapzp}\n')
