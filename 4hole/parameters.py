@@ -95,11 +95,11 @@ if Norb == 8 or Norb == 5:
         tapzps = np.linspace(0.484, 0.484, num=1, endpoint=True)
     if pressure == 29.5:
         tpds = np.linspace(1.58, 1.58, num=1, endpoint=True)
-        tpds = [3.6]
+        # tpds = np.linspace(0, 4.2, num=22, endpoint=True)
 
         tpps = [0.562]
         tapzds = np.linspace(1.66, 1.66, num=1, endpoint=True)
-        # tapzds = [3.6]
+        # tapzds = np.linspace(0, 4.2, num=22, endpoint=True)
 
         tapzps = np.linspace(0.487, 0.487, num=1, endpoint=True)
     tz_a1a1 = 0.028
@@ -139,7 +139,7 @@ eta = 0.1
 Lanczos_maxiter = 600
 
 # restriction on variational space
-reduce_VS = 1
+reduce_VS = 0
 all_A_d8910 = 'd9'
 if_H0_rotate_byU = 1
 basis_change_type = 'd_double'  # 'all_states' or 'd_double'

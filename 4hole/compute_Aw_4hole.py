@@ -156,6 +156,10 @@ def compute_Aw_main(ANi,ACu,epCu,epNi,epbilayer,tpd,tpp,tapzd,tapzp,tz_a1a1,tz_b
 ##########################################################################
 if __name__ == '__main__':
     os.makedirs('data', exist_ok=True)
+    for filename in os.listdir('data'):
+        file_path = os.path.join('data', filename)
+        with open(file_path, 'w') as f:
+            f.truncate(0)
     for ANi in pam.ANis:
         ACu = ANi
         for pressure in [29.5]:
@@ -241,14 +245,14 @@ if __name__ == '__main__':
                                                         print ('===================================================')
                                                         print ('ANi=',ANi, 'ACu=',ACu,'epCu=', epCu, 'epNi=',epNi, 'epbilayer=',epbilayer,\
                                                                ' tpd=',tpd,' tpp=',tpp,' Upp=',Upp ,'tz_a1a1=',tz_a1a1,'tz_b1b1=',tz_b1b1,'tapzd=',tapzd,'tapzp=',tapzp)
-                                                        with open('./data/dL_weight', 'a') as f:
-                                                            f.write(f'A = {ANi}, B = {B}, C = {C}, ed = {edNi}\n'
-                                                                    f'ep = {epCu}, eo = {epNi}, tpp = {tpp}, tpo = {tapzp}, '
-                                                                    f'tz_a1a1 = {tz_a1a1}, tz_b1b1 = {tz_b1b1}, Upp = {Upp}, Uss = {Uss}\n'
-                                                                    f'tpd = {tpd}, tdo = {tapzd}\n')
-                                                        with open('./data/energy_spectrum', 'a') as f:
-                                                            f.write(f'pressure = {pressure}, Sz = 0, A = {ANi}, Uoo = {Uss}, Upp = {Upp}\n'
-                                                                    f'ep = {epCu}, eo = {epbilayer}, tpd = {tpd}, tpp = {tpp}, tdo = {tapzd}, tpo = {tapzp}\n')
+                                                        file_path_list = ('./data/dL_weight', './data/energy_spectrum', './data/orb_max_weight')
+                                                        for file_path in file_path_list:
+                                                            with open(file_path, 'a') as f:
+                                                                f.write(f'A = {ANi}, B = {B}, C = {C}, ed = {edNi}\n'
+                                                                        f'ep = {epCu}, eo = {epbilayer}, tpp = {tpp}, tpo = {tapzp}, '
+                                                                        f'tz_a1a1 = {tz_a1a1}, tz_b1b1 = {tz_b1b1}, Upp = {Upp}, Uss = {Uss}\n'
+                                                                        f'tpd = {tpd}, tdo = {tapzd}\n')
+
                                                         compute_Aw_main(ANi,ACu,epCu,epNi,epbilayer,tpd,tpp,tapzd,tapzp,tz_a1a1,tz_b1b1,0,0,0,0,Upp,Uss,\
                                                                         d_Ni_double,d_Cu_double,p_double,apz_double,double_Ni_part,hole34_Ni_part,\
                                                                         double_Cu_part,hole34_Cu_part, idx_Ni,idx_Cu, \

@@ -11,7 +11,7 @@ import scipy.sparse.linalg
 import parameters as pam
 import hamiltonian_d9 as ham
 import lattice as lat
-import variational_space as vs 
+import variational_space as vs
 import utility as util
 import lanczos
 
@@ -20,35 +20,59 @@ def reorder_z(slabel):
     '''
     reorder orbs such that d orb is always before p orb and Ni layer (z=1) before Cu layer (z=0)
     '''
-    s1 = slabel[0]; orb1 = slabel[1]; x1 = slabel[2]; y1 = slabel[3]; z1 = slabel[4];
-    s2 = slabel[5]; orb2 = slabel[6]; x2 = slabel[7]; y2 = slabel[8]; z2 = slabel[9];
-    
-    state_label = [s1,orb1,x1,y1,z1,s2,orb2,x2,y2,z2]
-    
+    s1 = slabel[0];
+    orb1 = slabel[1];
+    x1 = slabel[2];
+    y1 = slabel[3];
+    z1 = slabel[4];
+    s2 = slabel[5];
+    orb2 = slabel[6];
+    x2 = slabel[7];
+    y2 = slabel[8];
+    z2 = slabel[9];
+
+    state_label = [s1, orb1, x1, y1, z1, s2, orb2, x2, y2, z2]
+
     if orb1 in pam.Ni_Cu_orbs and orb2 in pam.Ni_Cu_orbs:
-        if z2>z1:
-            state_label = [s2,orb2,x2,y2,z2,s1,orb1,x1,y1,z1]
-        elif z2==z1 and orb1=='dx2y2' and orb2=='d3z2r2':
-            state_label = [s2,orb2,x2,y2,z2,s1,orb1,x1,y1,z1]
+        if z2 > z1:
+            state_label = [s2, orb2, x2, y2, z2, s1, orb1, x1, y1, z1]
+        elif z2 == z1 and orb1 == 'dx2y2' and orb2 == 'd3z2r2':
+            state_label = [s2, orb2, x2, y2, z2, s1, orb1, x1, y1, z1]
     elif orb1 in pam.O_orbs and orb2 in pam.Obilayer_orbs:
-        state_label = [s2,orb2,x2,y2,z2,s1,orb1,x1,y1,z1]            
+        state_label = [s2, orb2, x2, y2, z2, s1, orb1, x1, y1, z1]
     elif orb1 in pam.Obilayer_orbs and orb2 in pam.Ni_Cu_orbs:
-        state_label = [s2,orb2,x2,y2,z2,s1,orb1,x1,y1,z1]             
+        state_label = [s2, orb2, x2, y2, z2, s1, orb1, x1, y1, z1]
     elif orb1 in pam.O_orbs and orb2 in pam.Ni_Cu_orbs:
-        state_label = [s2,orb2,x2,y2,z2,s1,orb1,x1,y1,z1]
-        
+        state_label = [s2, orb2, x2, y2, z2, s1, orb1, x1, y1, z1]
+
     elif orb1 in pam.O_orbs and orb2 in pam.O_orbs:
-        if z2>z1:
-            state_label = [s2,orb2,x2,y2,z2,s1,orb1,x1,y1,z1]
-            
+        if z2 > z1:
+            state_label = [s2, orb2, x2, y2, z2, s1, orb1, x1, y1, z1]
+
     return state_label
-                
+
+
 def make_z_canonical(slabel):
-    
-    s1 = slabel[0]; orb1 = slabel[1]; x1 = slabel[2]; y1 = slabel[3]; z1 = slabel[4];
-    s2 = slabel[5]; orb2 = slabel[6]; x2 = slabel[7]; y2 = slabel[8]; z2 = slabel[9];
-    s3 = slabel[10]; orb3 = slabel[11]; x3 = slabel[12]; y3 = slabel[13]; z3 = slabel[14];
-    s4 = slabel[15]; orb4 = slabel[16]; x4 = slabel[17]; y4 = slabel[18]; z4 = slabel[19];    
+    s1 = slabel[0];
+    orb1 = slabel[1];
+    x1 = slabel[2];
+    y1 = slabel[3];
+    z1 = slabel[4];
+    s2 = slabel[5];
+    orb2 = slabel[6];
+    x2 = slabel[7];
+    y2 = slabel[8];
+    z2 = slabel[9];
+    s3 = slabel[10];
+    orb3 = slabel[11];
+    x3 = slabel[12];
+    y3 = slabel[13];
+    z3 = slabel[14];
+    s4 = slabel[15];
+    orb4 = slabel[16];
+    x4 = slabel[17];
+    y4 = slabel[18];
+    z4 = slabel[19];
     '''
     For three holes, the original candidate state is c_1*c_2*c_3|vac>
     To generate the canonical_state:
@@ -56,34 +80,34 @@ def make_z_canonical(slabel):
     2. reorder tmp12's 2nd hole part and c_3 to have a tmp23;
     3. reorder tmp12's 1st hole part and tmp23's 1st hole part
     '''
-    tlabel = [s1,orb1,x1,y1,z1,s2,orb2,x2,y2,z2]
+    tlabel = [s1, orb1, x1, y1, z1, s2, orb2, x2, y2, z2]
     tmp12 = reorder_z(tlabel)
 
-    tlabel = tmp12[5:10]+[s3,orb3,x3,y3,z3]
+    tlabel = tmp12[5:10] + [s3, orb3, x3, y3, z3]
     tmp23 = reorder_z(tlabel)
 
-    tlabel = tmp12[0:5]+tmp23[0:5]
+    tlabel = tmp12[0:5] + tmp23[0:5]
     tmp = reorder_z(tlabel)
 
-    slabel = tmp+tmp23[5:10]
-    tlabel = slabel[10:15] + [s4,orb4,x4,y4,z4]
+    slabel = tmp + tmp23[5:10]
+    tlabel = slabel[10:15] + [s4, orb4, x4, y4, z4]
     tmp34 = reorder_z(tlabel)
-    
+
     if tmp34 == tlabel:
-        slabel2 = slabel + [s4,orb4,x4,y4,z4]
-    elif  tmp34 != tlabel:
-        tlabel = slabel[5:10] + [s4,orb4,x4,y4,z4]
+        slabel2 = slabel + [s4, orb4, x4, y4, z4]
+    elif tmp34 != tlabel:
+        tlabel = slabel[5:10] + [s4, orb4, x4, y4, z4]
         tmp24 = reorder_z(tlabel)
         if tmp24 == tlabel:
-            slabel2 = slabel[0:10]+ [s4,orb4,x4,y4,z4] + slabel[10:15]
-        elif  tmp24 != tlabel:
-            tlabel = slabel[0:5] + [s4,orb4,x4,y4,z4]   
+            slabel2 = slabel[0:10] + [s4, orb4, x4, y4, z4] + slabel[10:15]
+        elif tmp24 != tlabel:
+            tlabel = slabel[0:5] + [s4, orb4, x4, y4, z4]
             tmp14 = reorder_z(tlabel)
             if tmp14 == tlabel:
-                slabel2 = slabel[0:5]+ [s4,orb4,x4,y4,z4] + slabel[5:15]
-            elif  tmp14 != tlabel:
-                slabel2 = [s4,orb4,x4,y4,z4] + slabel[0:15]     
-                
+                slabel2 = slabel[0:5] + [s4, orb4, x4, y4, z4] + slabel[5:15]
+            elif tmp14 != tlabel:
+                slabel2 = [s4, orb4, x4, y4, z4] + slabel[0:15]
+
     return slabel2
 
 
@@ -106,9 +130,9 @@ def state_classification(state_param):
     state_param.sort(key=lambda hole: hole[-2])
     for x, y, z, orb, s in state_param:
         if s == 'up':
-            Sz += 1/2
+            Sz += 1 / 2
         else:
-            Sz += -1/2
+            Sz += -1 / 2
         if z == 2:
             if orb in pam.Ni_Cu_orbs:
                 Ni_top += 1
@@ -133,17 +157,22 @@ def state_classification(state_param):
                     orb_type[2] += simple_orb[orb]
             elif orb in pam.O_orbs:
                 O_bottom += 1
-    if Ni_top + Ni_bottom + O_bilayer == 0:
-        dL_type = [f'L{O_top}', f'L{O_bottom}']
-    else:
+    if Ni_top != 0:
         dL_type[0] = f'd{10 - Ni_top}'
         if O_top != 0:
             dL_type[0] += 'L' if O_top == 1 else f'L{O_top}'
-        if O_bilayer != 0:
-            dL_type[1] += 'O' if O_bilayer == 1 else f'O{O_bilayer}'
+    else:
+        if O_top != 0:
+            dL_type[0] = 'L' if O_top == 1 else f'L{O_top}'
+    if O_bilayer != 0:
+        dL_type[1] = 'O' if O_bilayer == 1 else f'O{O_bilayer}'
+    if Ni_bottom != 0:
         dL_type[2] = f'd{10 - Ni_bottom}'
         if O_bottom != 0:
             dL_type[2] += 'L' if O_bottom == 1 else f'L{O_bottom}'
+    else:
+        if O_bottom != 0:
+            dL_type[2] = 'L' if O_bottom == 1 else f'L{O_bottom}'
     dL_type = [x for x in dL_type if x != 'empty']
     if len(dL_type) == 3:
         if dL_type[0] > dL_type[-1]:
@@ -171,7 +200,7 @@ def state_classification(state_param):
     return dL_type, orb_type
 
 
-def get_ground_state(matrix, VS, S_Ni_val, Sz_Ni_val, S_Cu_val, Sz_Cu_val,bonding_val):
+def get_ground_state(matrix, VS, S_Ni_val, Sz_Ni_val, S_Cu_val, Sz_Cu_val, bonding_val):
     '''
     Obtain the ground state info, namely the lowest peak in Aw_dd's component
     in particular how much weight of various d8 channels: a1^2, b1^2, b2^2, e^2
@@ -190,9 +219,11 @@ def get_ground_state(matrix, VS, S_Ni_val, Sz_Ni_val, S_Cu_val, Sz_Cu_val,bondin
             break
     print('Degeneracy of ground state is ', number)
     weight_average = np.average(abs(vecs[:, :number]) ** 2, axis=1)
-    with open ('./data/energy_spectrum', 'a') as f:
+    with open('./data/energy_spectrum', 'a') as f:
         f.write('lowest eigenvalue of H from np.linalg.eigsh = \n')
         f.write(str(vals) + '\n\n')
+    with open('./data/vals', 'a') as f:
+        f.write(f'{vals[0]}\n')
     ilead = np.argsort(-weight_average)
     total = 0
     # dL_weight用来记录, 例如d8_d9L总的weight,
@@ -226,8 +257,10 @@ def get_ground_state(matrix, VS, S_Ni_val, Sz_Ni_val, S_Cu_val, Sz_Cu_val,bondin
 
         input_state = [(x1, y1, z1, orb1, s1), (x2, y2, z2, orb2, s2), (x3, y3, z3, orb3, s3),
                        (x4, y4, z4, orb4, s4)]
+        position = f'({x1}, {y1}, {z1}), ({x2}, {y2}, {z2}), ({x3}, {y3}, {z3}), ({x4}, {y4}, {z4})'
         dL_type, orb_type = state_classification(input_state)
         # dL_type += f'({bonding})'
+        orb_type = position + orb_type
         dL_orb_type = f'{dL_type},{orb_type}'
         if dL_type in dL_weight:
             dL_weight[dL_type] += weight
@@ -247,22 +280,20 @@ def get_ground_state(matrix, VS, S_Ni_val, Sz_Ni_val, S_Cu_val, Sz_Cu_val,bondin
     text_dL_weight = open('./data/dL_weight', 'a')
     text_orb_max_weight = open('./data/orb_max_weight', 'a')
     sorted_dL = sorted(dL_weight, key=dL_weight.get, reverse=True)
-    i1 = 0
-    for dL_type in sorted_dL:
+    for i1, dL_type in enumerate(sorted_dL):
         weight = dL_weight[dL_type]
         if weight < 0.002:
             continue
         if i1 == 0:
+            text_orb_max_weight.write(f'{dL_type}: {weight}\n\n')
             print('\n', end='')
-            i1 = 1
         else:
             print('\n\n', end='')
         print(f'{dL_type}: {weight}\n')
         text_dL_weight.write(f'\t{dL_type}: {weight}\n')
         dL_orb_type_list = [f'{dL_type},{orb_type}' for orb_type in dL_orb[dL_type]]
         dL_orb_type_list = sorted(dL_orb_type_list, key=lambda x: dL_orb_weight[x], reverse=True)
-        i2 = 0
-        for dL_orb_type in dL_orb_type_list:
+        for i2, dL_orb_type in enumerate(dL_orb_type_list):
             weight = dL_orb_weight[dL_orb_type]
             if weight < 1e-3:
                 continue
@@ -270,22 +301,24 @@ def get_ground_state(matrix, VS, S_Ni_val, Sz_Ni_val, S_Cu_val, Sz_Cu_val,bondin
             orb_type = ",".join(orb_type[1:])
             if i2 != 0:
                 print('\n', end='')
-            else:
-                i2 = 1
             print(f'\t{orb_type}: {weight}\n')
-            last_weight = 0
-            weight_num = 1
+            if i1 == 0:
+                text_orb_max_weight.write(f'\t{orb_type}: {weight}\n\n')
+            # last_weight = 0
+            # weight_num = 1
             for istate in dL_orb_istate[dL_orb_type]:
                 weight = weight_average[istate]
-                if weight < 1e-4:
-                    continue
-                if abs(weight - last_weight) < 1e-6:
-                    weight_num += 1
-                    # continue
-                if weight_num > 1:
-                    print(f'\tthe same weight number = {weight_num}\n')
-                last_weight = weight
-                weight_num = 1
+                # if weight < 1e-4:
+                #     continue
+                # if abs(weight - last_weight) < 1e-6:
+                #     weight_num += 1
+                #     continue
+                # if weight_num > 1:
+                #     print(f'\tthe same weight number = {weight_num}\n')
+                #     if i1 == 0:
+                #         text_orb_max_weight.write(f'\tthe same weight number = {weight_num}\n')
+                # last_weight = weight
+                # weight_num = 1
                 state = VS.get_state(VS.lookup_tbl[istate])
                 s1 = state['hole1_spin']
                 s2 = state['hole2_spin']
@@ -299,13 +332,20 @@ def get_ground_state(matrix, VS, S_Ni_val, Sz_Ni_val, S_Cu_val, Sz_Cu_val,bondin
                 x2, y2, z2 = state['hole2_coord']
                 x3, y3, z3 = state['hole3_coord']
                 x4, y4, z4 = state['hole4_coord']
-                print(f'\t({x1}, {y1}, {z1}, {orb1}, {s1}), ({x2}, {y2}, {z2}, {orb2}, {s2}), ({x3}, {y3}, {z3}, {orb3}, {s3})\n'
-                      f'\t({x4}, {y4}, {z4}, {orb4}, {s4})\n'
-                      f'\tS_Ni1 = {S_Ni_val[istate]}, Sz_Ni1 = {Sz_Ni_val[istate]}, '
-                      f'S_Ni2 = {S_Cu_val[istate]}, Sz_Ni2 = {Sz_Cu_val[istate]},'
-                      f'bonding = {bonding_val[istate]}, weight = {weight}\n')
+                output = f'\t({x1}, {y1}, {z1}, {orb1}, {s1}), ({x2}, {y2}, {z2}, {orb2}, {s2}), ' +\
+                         f'({x3}, {y3}, {z3}, {orb3}, {s3})\n\t({x4}, {y4}, {z4}, {orb4}, {s4})\n' + \
+                         f'\tS_Ni1 = {S_Ni_val[istate]}, Sz_Ni1 = {Sz_Ni_val[istate]}, ' + \
+                         f'S_Ni2 = {S_Cu_val[istate]}, Sz_Ni2 = {Sz_Cu_val[istate]},' + \
+                         f'bonding = {bonding_val[istate]}, weight = {weight}\n'
+                print(output)
+                if i1 == 0:
+                    text_orb_max_weight.write(output + '\n')
             # 处理最后一次循环
-            if weight_num > 1:
-                print(f'\tthe same weight number = {weight_num}\n')
+            # if weight_num > 1:
+            #     print(f'\tthe same weight number = {weight_num}\n')
+            #     if i1 == 0:
+            #         text_orb_max_weight.write(f'\tthe same weight number = {weight_num}\n\n')
     text_dL_weight.write('\n')
     text_dL_weight.close()
+    text_orb_max_weight.write('\n\n')
+    text_orb_max_weight.close()
