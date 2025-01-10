@@ -1,0 +1,1089 @@
+A = 6.0, B = 0.15, C = 0.58, ed = {'d3z2r2': 0.095, 'dx2y2': 0.0, 'dxy': 1.06, 'dxz': 0.94, 'dyz': 0.94}
+ep = 2.9, eo = 3.24, tpp = 0.562, tpo = 0.487, tz_a1a1 = 0.028, tz_b1b1 = 0.047, Upp = 4.0, Uoo = 4.0
+tpd = 1.5, tdo = 1.66
+d8_d8L: 0.39797283118027843
+
+	(0, 0, 2), (0, 0, 2), (-1, 0, 0), (0, 0, 0), (0, 0, 0),dz2dx2_dz2dx2,Sz=+-1/2: 0.046065519517338754
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, up), (-1, 0, 0, px, up)
+	(0, 0, 0, d3z2r2, dn), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 1, S_Ni2 = 1, Sz_Ni2 = -1,bonding = 1, weight = 0.009139111076128265
+
+	(0, 0, 2, d3z2r2, dn), (0, 0, 2, dx2y2, dn), (-1, 0, 0, px, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, up)
+	S_Ni1 = 1, Sz_Ni1 = -1, S_Ni2 = 1, Sz_Ni2 = 1,bonding = 1, weight = 0.009139111076128201
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, up), (-1, 0, 0, px, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 1, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 1, weight = 0.006412259544851849
+
+	(0, 0, 2, d3z2r2, dn), (0, 0, 2, dx2y2, dn), (-1, 0, 0, px, up)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = -1, S_Ni2 = 1, Sz_Ni2 = 0,bonding = 1, weight = 0.006412259544851789
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (-1, 0, 0, px, up)
+	(0, 0, 0, d3z2r2, dn), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = -1,bonding = 1, weight = 0.0024646845647817734
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (-1, 0, 0, px, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, up)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 1,bonding = 1, weight = 0.002464684564781726
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (-1, 0, 0, px, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 1, weight = 0.0017447489651655585
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (-1, 0, 0, px, up)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 0,bonding = 1, weight = 0.00174474896516552
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (-1, 0, 0, px, up)
+	(0, 0, 0, d3z2r2, dn), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = -1,bonding = 1, weight = 0.0016941558118497174
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (-1, 0, 0, px, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, up)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 1,bonding = 1, weight = 0.0016941558118496879
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (-1, 0, 0, px, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 1, weight = 0.001183920765679311
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (-1, 0, 0, px, up)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 0,bonding = 1, weight = 0.0011839207656792864
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, up), (-1, 0, 0, px, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 1, S_Ni2 = 1, Sz_Ni2 = 0,bonding = 1, weight = 0.0002705538707030696
+
+	(0, 0, 2, d3z2r2, dn), (0, 0, 2, dx2y2, dn), (-1, 0, 0, px, up)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 1, Sz_Ni1 = -1, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 1, weight = 0.0002705538707030614
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (-1, 0, 0, px, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 0,bonding = 1, weight = 7.098543528817467e-05
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (-1, 0, 0, px, up)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 1, weight = 7.098543528817227e-05
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (-1, 0, 0, px, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 0,bonding = 1, weight = 5.2337040078031006e-05
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (-1, 0, 0, px, up)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 1, weight = 5.233704007802865e-05
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, up), (-1, 0, 0, px, dn)
+	(0, 0, 0, d3z2r2, dn), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 1, S_Ni2 = 1, Sz_Ni2 = -1,bonding = 1, weight = 2.68414376942696e-09
+
+	(0, 0, 2, d3z2r2, dn), (0, 0, 2, dx2y2, dn), (-1, 0, 0, px, up)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, up)
+	S_Ni1 = 1, Sz_Ni1 = -1, S_Ni2 = 1, Sz_Ni2 = 1,bonding = 1, weight = 2.6841437694193707e-09
+
+	(0, 0, 2), (0, 0, 2), (0, 0, 0), (0, 0, 0), (0, 1, 0),dz2dx2_dz2dx2,Sz=+-1/2: 0.04606551951733875
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	(0, 0, 0, dx2y2, dn), (0, 1, 0, py, up)
+	S_Ni1 = 1, Sz_Ni1 = 1, S_Ni2 = 1, Sz_Ni2 = -1,bonding = -1, weight = 0.009139111076128295
+
+	(0, 0, 2, d3z2r2, dn), (0, 0, 2, dx2y2, dn), (0, 0, 0, d3z2r2, up)
+	(0, 0, 0, dx2y2, up), (0, 1, 0, py, dn)
+	S_Ni1 = 1, Sz_Ni1 = -1, S_Ni2 = 1, Sz_Ni2 = 1,bonding = -1, weight = 0.009139111076128165
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, up), (0, 0, 0, dx2y2, up)
+	(0, 0, 0, d3z2r2, dn), (0, 1, 0, py, dn)
+	S_Ni1 = 1, Sz_Ni1 = 1, S_Ni2 = 0, Sz_Ni2 = 0,bonding = -1, weight = 0.006412259544851854
+
+	(0, 0, 2, d3z2r2, dn), (0, 0, 2, dx2y2, dn), (0, 0, 0, d3z2r2, up)
+	(0, 0, 0, dx2y2, dn), (0, 1, 0, py, up)
+	S_Ni1 = 1, Sz_Ni1 = -1, S_Ni2 = 1, Sz_Ni2 = 0,bonding = -1, weight = 0.006412259544851795
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (0, 0, 0, d3z2r2, dn)
+	(0, 0, 0, dx2y2, dn), (0, 1, 0, py, up)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = -1,bonding = -1, weight = 0.0024646845647817803
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (0, 0, 0, d3z2r2, up)
+	(0, 0, 0, dx2y2, up), (0, 1, 0, py, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 1,bonding = -1, weight = 0.0024646845647817196
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (0, 0, 0, dx2y2, up)
+	(0, 0, 0, d3z2r2, dn), (0, 1, 0, py, dn)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = -1, weight = 0.001744748965165553
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (0, 0, 0, d3z2r2, up)
+	(0, 0, 0, dx2y2, dn), (0, 1, 0, py, up)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 0,bonding = -1, weight = 0.0017447489651655195
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (0, 0, 0, d3z2r2, dn)
+	(0, 0, 0, dx2y2, dn), (0, 1, 0, py, up)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = -1,bonding = -1, weight = 0.0016941558118497204
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (0, 0, 0, d3z2r2, up)
+	(0, 0, 0, dx2y2, up), (0, 1, 0, py, dn)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 1,bonding = -1, weight = 0.0016941558118496718
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (0, 0, 0, dx2y2, up)
+	(0, 0, 0, d3z2r2, dn), (0, 1, 0, py, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = -1, weight = 0.001183920765679312
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (0, 0, 0, d3z2r2, up)
+	(0, 0, 0, dx2y2, dn), (0, 1, 0, py, up)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 0,bonding = -1, weight = 0.0011839207656792851
+
+	(0, 0, 2, d3z2r2, dn), (0, 0, 2, dx2y2, dn), (0, 0, 0, dx2y2, up)
+	(0, 0, 0, d3z2r2, dn), (0, 1, 0, py, up)
+	S_Ni1 = 1, Sz_Ni1 = -1, S_Ni2 = 0, Sz_Ni2 = 0,bonding = -1, weight = 0.00027055387070306557
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, up), (0, 0, 0, d3z2r2, up)
+	(0, 0, 0, dx2y2, dn), (0, 1, 0, py, dn)
+	S_Ni1 = 1, Sz_Ni1 = 1, S_Ni2 = 1, Sz_Ni2 = 0,bonding = -1, weight = 0.0002705538707030613
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (0, 0, 0, d3z2r2, up)
+	(0, 0, 0, dx2y2, dn), (0, 1, 0, py, dn)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 0,bonding = -1, weight = 7.098543528817405e-05
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (0, 0, 0, dx2y2, up)
+	(0, 0, 0, d3z2r2, dn), (0, 1, 0, py, up)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = -1, weight = 7.098543528817317e-05
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (0, 0, 0, dx2y2, up)
+	(0, 0, 0, d3z2r2, dn), (0, 1, 0, py, up)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = -1, weight = 5.2337040078030254e-05
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (0, 0, 0, d3z2r2, up)
+	(0, 0, 0, dx2y2, dn), (0, 1, 0, py, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 0,bonding = -1, weight = 5.2337040078030105e-05
+
+	(0, 0, 2, d3z2r2, dn), (0, 0, 2, dx2y2, dn), (0, 0, 0, d3z2r2, up)
+	(0, 0, 0, dx2y2, up), (0, 1, 0, py, up)
+	S_Ni1 = 1, Sz_Ni1 = -1, S_Ni2 = 1, Sz_Ni2 = 1,bonding = -1, weight = 2.684143769432058e-09
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	(0, 0, 0, dx2y2, dn), (0, 1, 0, py, dn)
+	S_Ni1 = 1, Sz_Ni1 = 1, S_Ni2 = 1, Sz_Ni2 = -1,bonding = -1, weight = 2.684143769426131e-09
+
+	(0, 0, 2), (0, 0, 2), (0, -1, 0), (0, 0, 0), (0, 0, 0),dz2dx2_dz2dx2,Sz=+-1/2: 0.04606551951733873
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, up), (0, -1, 0, py, up)
+	(0, 0, 0, d3z2r2, dn), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 1, S_Ni2 = 1, Sz_Ni2 = -1,bonding = 1, weight = 0.009139111076128281
+
+	(0, 0, 2, d3z2r2, dn), (0, 0, 2, dx2y2, dn), (0, -1, 0, py, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, up)
+	S_Ni1 = 1, Sz_Ni1 = -1, S_Ni2 = 1, Sz_Ni2 = 1,bonding = 1, weight = 0.009139111076128158
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, up), (0, -1, 0, py, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 1, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 1, weight = 0.006412259544851858
+
+	(0, 0, 2, d3z2r2, dn), (0, 0, 2, dx2y2, dn), (0, -1, 0, py, up)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = -1, S_Ni2 = 1, Sz_Ni2 = 0,bonding = 1, weight = 0.006412259544851796
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (0, -1, 0, py, up)
+	(0, 0, 0, d3z2r2, dn), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = -1,bonding = 1, weight = 0.002464684564781775
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (0, -1, 0, py, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, up)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 1,bonding = 1, weight = 0.0024646845647817205
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (0, -1, 0, py, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 1, weight = 0.0017447489651655536
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (0, -1, 0, py, up)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 0,bonding = 1, weight = 0.0017447489651655165
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (0, -1, 0, py, up)
+	(0, 0, 0, d3z2r2, dn), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = -1,bonding = 1, weight = 0.0016941558118497174
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (0, -1, 0, py, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, up)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 1,bonding = 1, weight = 0.0016941558118496746
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (0, -1, 0, py, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 1, weight = 0.0011839207656793125
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (0, -1, 0, py, up)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 0,bonding = 1, weight = 0.0011839207656792869
+
+	(0, 0, 2, d3z2r2, dn), (0, 0, 2, dx2y2, dn), (0, -1, 0, py, up)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 1, Sz_Ni1 = -1, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 1, weight = 0.00027055387070306546
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, up), (0, -1, 0, py, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 1, S_Ni2 = 1, Sz_Ni2 = 0,bonding = 1, weight = 0.0002705538707030625
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (0, -1, 0, py, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 0,bonding = 1, weight = 7.098543528817382e-05
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (0, -1, 0, py, up)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 1, weight = 7.098543528817305e-05
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (0, -1, 0, py, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 0,bonding = 1, weight = 5.233704007803019e-05
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (0, -1, 0, py, up)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 1, weight = 5.233704007803003e-05
+
+	(0, 0, 2, d3z2r2, dn), (0, 0, 2, dx2y2, dn), (0, -1, 0, py, up)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, up)
+	S_Ni1 = 1, Sz_Ni1 = -1, S_Ni2 = 1, Sz_Ni2 = 1,bonding = 1, weight = 2.6841437694267417e-09
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, up), (0, -1, 0, py, dn)
+	(0, 0, 0, d3z2r2, dn), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 1, S_Ni2 = 1, Sz_Ni2 = -1,bonding = 1, weight = 2.6841437694257016e-09
+
+	(0, 0, 2), (0, 0, 2), (0, 1, 2), (0, 0, 0), (0, 0, 0),dz2dx2_dz2dx2,Sz=+-1/2: 0.04606551951733866
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, up), (0, 1, 2, py, dn)
+	(0, 0, 0, d3z2r2, dn), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 1, S_Ni2 = 1, Sz_Ni2 = -1,bonding = 1, weight = 0.009139111076128236
+
+	(0, 0, 2, d3z2r2, dn), (0, 0, 2, dx2y2, dn), (0, 1, 2, py, up)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, up)
+	S_Ni1 = 1, Sz_Ni1 = -1, S_Ni2 = 1, Sz_Ni2 = 1,bonding = 1, weight = 0.009139111076127965
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (0, 1, 2, py, up)
+	(0, 0, 0, d3z2r2, dn), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = -1,bonding = 1, weight = 0.006412259544851799
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (0, 1, 2, py, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, up)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 1,bonding = 1, weight = 0.006412259544851628
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, up), (0, 1, 2, py, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 1, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 1, weight = 0.002464684564781867
+
+	(0, 0, 2, d3z2r2, dn), (0, 0, 2, dx2y2, dn), (0, 1, 2, py, up)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = -1, S_Ni2 = 1, Sz_Ni2 = 0,bonding = 1, weight = 0.00246468456478175
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (0, 1, 2, py, up)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 1, weight = 0.00174474896516563
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (0, 1, 2, py, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 0,bonding = 1, weight = 0.001744748965165538
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, up), (0, 1, 2, py, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 1, S_Ni2 = 1, Sz_Ni2 = 0,bonding = 1, weight = 0.0016941558118497967
+
+	(0, 0, 2, d3z2r2, dn), (0, 0, 2, dx2y2, dn), (0, 1, 2, py, up)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 1, Sz_Ni1 = -1, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 1, weight = 0.0016941558118496929
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (0, 1, 2, py, up)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 0,bonding = 1, weight = 0.0011839207656793767
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (0, 1, 2, py, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 1, weight = 0.0011839207656793044
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (0, 1, 2, py, up)
+	(0, 0, 0, d3z2r2, dn), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = -1,bonding = 1, weight = 0.00027055387070305874
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (0, 1, 2, py, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, up)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 1,bonding = 1, weight = 0.0002705538707030531
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (0, 1, 2, py, up)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 1, weight = 7.098543528817895e-05
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (0, 1, 2, py, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 0,bonding = 1, weight = 7.09854352881746e-05
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (0, 1, 2, py, up)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 0,bonding = 1, weight = 5.2337040078034516e-05
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (0, 1, 2, py, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 1, weight = 5.233704007803112e-05
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, up), (0, 1, 2, py, up)
+	(0, 0, 0, d3z2r2, dn), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 1, S_Ni2 = 1, Sz_Ni2 = -1,bonding = 1, weight = 2.6841437694287324e-09
+
+	(0, 0, 2, d3z2r2, dn), (0, 0, 2, dx2y2, dn), (0, 1, 2, py, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, up)
+	S_Ni1 = 1, Sz_Ni1 = -1, S_Ni2 = 1, Sz_Ni2 = 1,bonding = 1, weight = 2.6841437694246556e-09
+
+	(-1, 0, 2), (0, 0, 2), (0, 0, 2), (0, 0, 0), (0, 0, 0),dz2dx2_dz2dx2,Sz=+-1/2: 0.04606551951733863
+
+	(-1, 0, 2, px, dn), (0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, up)
+	(0, 0, 0, d3z2r2, dn), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 1, S_Ni2 = 1, Sz_Ni2 = -1,bonding = -1, weight = 0.009139111076128156
+
+	(-1, 0, 2, px, up), (0, 0, 2, d3z2r2, dn), (0, 0, 2, dx2y2, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, up)
+	S_Ni1 = 1, Sz_Ni1 = -1, S_Ni2 = 1, Sz_Ni2 = 1,bonding = -1, weight = 0.009139111076127927
+
+	(-1, 0, 2, px, up), (0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn)
+	(0, 0, 0, d3z2r2, dn), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = -1,bonding = -1, weight = 0.006412259544851825
+
+	(-1, 0, 2, px, dn), (0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, up)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 1,bonding = -1, weight = 0.006412259544851645
+
+	(-1, 0, 2, px, dn), (0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, up)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 1, S_Ni2 = 0, Sz_Ni2 = 0,bonding = -1, weight = 0.0024646845647818758
+
+	(-1, 0, 2, px, up), (0, 0, 2, d3z2r2, dn), (0, 0, 2, dx2y2, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = -1, S_Ni2 = 1, Sz_Ni2 = 0,bonding = -1, weight = 0.002464684564781757
+
+	(-1, 0, 2, px, up), (0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = -1, weight = 0.0017447489651656264
+
+	(-1, 0, 2, px, dn), (0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 0,bonding = -1, weight = 0.0017447489651655405
+
+	(-1, 0, 2, px, dn), (0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, up)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 1, S_Ni2 = 1, Sz_Ni2 = 0,bonding = -1, weight = 0.0016941558118498063
+
+	(-1, 0, 2, px, up), (0, 0, 2, d3z2r2, dn), (0, 0, 2, dx2y2, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 1, Sz_Ni1 = -1, S_Ni2 = 0, Sz_Ni2 = 0,bonding = -1, weight = 0.001694155811849705
+
+	(-1, 0, 2, px, up), (0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 0,bonding = -1, weight = 0.0011839207656793723
+
+	(-1, 0, 2, px, dn), (0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = -1, weight = 0.0011839207656792995
+
+	(-1, 0, 2, px, up), (0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn)
+	(0, 0, 0, d3z2r2, dn), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = -1,bonding = -1, weight = 0.00027055387070307234
+
+	(-1, 0, 2, px, dn), (0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, up)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 1,bonding = -1, weight = 0.00027055387070306237
+
+	(-1, 0, 2, px, up), (0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = -1, weight = 7.098543528817734e-05
+
+	(-1, 0, 2, px, dn), (0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 0,bonding = -1, weight = 7.098543528817329e-05
+
+	(-1, 0, 2, px, up), (0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 0,bonding = -1, weight = 5.23370400780335e-05
+
+	(-1, 0, 2, px, dn), (0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = -1, weight = 5.23370400780292e-05
+
+	(-1, 0, 2, px, up), (0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, up)
+	(0, 0, 0, d3z2r2, dn), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 1, S_Ni2 = 1, Sz_Ni2 = -1,bonding = -1, weight = 2.6841437694298226e-09
+
+	(-1, 0, 2, px, dn), (0, 0, 2, d3z2r2, dn), (0, 0, 2, dx2y2, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, up)
+	S_Ni1 = 1, Sz_Ni1 = -1, S_Ni2 = 1, Sz_Ni2 = 1,bonding = -1, weight = 2.68414376942313e-09
+
+	(0, -1, 2), (0, 0, 2), (0, 0, 2), (0, 0, 0), (0, 0, 0),dz2dx2_dz2dx2,Sz=+-1/2: 0.046065519517338616
+
+	(0, -1, 2, py, dn), (0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, up)
+	(0, 0, 0, d3z2r2, dn), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 1, S_Ni2 = 1, Sz_Ni2 = -1,bonding = -1, weight = 0.009139111076128234
+
+	(0, -1, 2, py, up), (0, 0, 2, d3z2r2, dn), (0, 0, 2, dx2y2, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, up)
+	S_Ni1 = 1, Sz_Ni1 = -1, S_Ni2 = 1, Sz_Ni2 = 1,bonding = -1, weight = 0.009139111076127951
+
+	(0, -1, 2, py, up), (0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn)
+	(0, 0, 0, d3z2r2, dn), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = -1,bonding = -1, weight = 0.006412259544851797
+
+	(0, -1, 2, py, dn), (0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, up)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 1,bonding = -1, weight = 0.006412259544851619
+
+	(0, -1, 2, py, dn), (0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, up)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 1, S_Ni2 = 0, Sz_Ni2 = 0,bonding = -1, weight = 0.0024646845647818723
+
+	(0, -1, 2, py, up), (0, 0, 2, d3z2r2, dn), (0, 0, 2, dx2y2, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = -1, S_Ni2 = 1, Sz_Ni2 = 0,bonding = -1, weight = 0.0024646845647817496
+
+	(0, -1, 2, py, up), (0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = -1, weight = 0.001744748965165621
+
+	(0, -1, 2, py, dn), (0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 0,bonding = -1, weight = 0.0017447489651655408
+
+	(0, -1, 2, py, dn), (0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, up)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 1, S_Ni2 = 1, Sz_Ni2 = 0,bonding = -1, weight = 0.0016941558118498043
+
+	(0, -1, 2, py, up), (0, 0, 2, d3z2r2, dn), (0, 0, 2, dx2y2, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 1, Sz_Ni1 = -1, S_Ni2 = 0, Sz_Ni2 = 0,bonding = -1, weight = 0.0016941558118496926
+
+	(0, -1, 2, py, up), (0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 0,bonding = -1, weight = 0.0011839207656793675
+
+	(0, -1, 2, py, dn), (0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = -1, weight = 0.0011839207656793012
+
+	(0, -1, 2, py, up), (0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn)
+	(0, 0, 0, d3z2r2, dn), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = -1,bonding = -1, weight = 0.0002705538707030591
+
+	(0, -1, 2, py, dn), (0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, up)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 1,bonding = -1, weight = 0.0002705538707030539
+
+	(0, -1, 2, py, up), (0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = -1, weight = 7.09854352881764e-05
+
+	(0, -1, 2, py, dn), (0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 0,bonding = -1, weight = 7.098543528817502e-05
+
+	(0, -1, 2, py, up), (0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 0,bonding = -1, weight = 5.23370400780325e-05
+
+	(0, -1, 2, py, dn), (0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = -1, weight = 5.233704007803064e-05
+
+	(0, -1, 2, py, dn), (0, 0, 2, d3z2r2, dn), (0, 0, 2, dx2y2, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, up)
+	S_Ni1 = 1, Sz_Ni1 = -1, S_Ni2 = 1, Sz_Ni2 = 1,bonding = -1, weight = 2.6841437694267488e-09
+
+	(0, -1, 2, py, up), (0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, up)
+	(0, 0, 0, d3z2r2, dn), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 1, S_Ni2 = 1, Sz_Ni2 = -1,bonding = -1, weight = 2.684143769415917e-09
+
+	(0, 0, 2), (0, 0, 2), (1, 0, 2), (0, 0, 0), (0, 0, 0),dz2dx2_dz2dx2,Sz=+-1/2: 0.046065519517338546
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, up), (1, 0, 2, px, dn)
+	(0, 0, 0, d3z2r2, dn), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 1, S_Ni2 = 1, Sz_Ni2 = -1,bonding = 1, weight = 0.009139111076128161
+
+	(0, 0, 2, d3z2r2, dn), (0, 0, 2, dx2y2, dn), (1, 0, 2, px, up)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, up)
+	S_Ni1 = 1, Sz_Ni1 = -1, S_Ni2 = 1, Sz_Ni2 = 1,bonding = 1, weight = 0.009139111076127871
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (1, 0, 2, px, up)
+	(0, 0, 0, d3z2r2, dn), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = -1,bonding = 1, weight = 0.006412259544851813
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (1, 0, 2, px, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, up)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 1,bonding = 1, weight = 0.006412259544851631
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, up), (1, 0, 2, px, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 1, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 1, weight = 0.002464684564781879
+
+	(0, 0, 2, d3z2r2, dn), (0, 0, 2, dx2y2, dn), (1, 0, 2, px, up)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = -1, S_Ni2 = 1, Sz_Ni2 = 0,bonding = 1, weight = 0.002464684564781757
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (1, 0, 2, px, up)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 1, weight = 0.0017447489651656255
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (1, 0, 2, px, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 0,bonding = 1, weight = 0.0017447489651655412
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, up), (1, 0, 2, px, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 1, S_Ni2 = 1, Sz_Ni2 = 0,bonding = 1, weight = 0.0016941558118498065
+
+	(0, 0, 2, d3z2r2, dn), (0, 0, 2, dx2y2, dn), (1, 0, 2, px, up)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 1, Sz_Ni1 = -1, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 1, weight = 0.0016941558118497098
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (1, 0, 2, px, up)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 0,bonding = 1, weight = 0.0011839207656793706
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (1, 0, 2, px, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 1, weight = 0.001183920765679301
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (1, 0, 2, px, up)
+	(0, 0, 0, d3z2r2, dn), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = -1,bonding = 1, weight = 0.00027055387070307283
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (1, 0, 2, px, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, up)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 1,bonding = 1, weight = 0.00027055387070305825
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (1, 0, 2, px, up)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 1, weight = 7.098543528817711e-05
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (1, 0, 2, px, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 0,bonding = 1, weight = 7.098543528817379e-05
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (1, 0, 2, px, up)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 0,bonding = 1, weight = 5.233704007803302e-05
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (1, 0, 2, px, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 1, weight = 5.233704007802889e-05
+
+	(0, 0, 2, d3z2r2, dn), (0, 0, 2, dx2y2, dn), (1, 0, 2, px, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, up)
+	S_Ni1 = 1, Sz_Ni1 = -1, S_Ni2 = 1, Sz_Ni2 = 1,bonding = 1, weight = 2.6841437694307403e-09
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, up), (1, 0, 2, px, up)
+	(0, 0, 0, d3z2r2, dn), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 1, S_Ni2 = 1, Sz_Ni2 = -1,bonding = 1, weight = 2.6841437694211583e-09
+
+	(0, 0, 2), (0, 0, 2), (0, 0, 0), (0, 0, 0), (1, 0, 0),dz2dx2_dz2dx2,j = 1/2: 0.036631461107701664
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (0, 0, 0, d3z2r2, dn)
+	(0, 0, 0, dx2y2, dn), (1, 0, 0, px, dn)
+	j = 1/2, m = 1/2, bonding = -1, weight = 0.008007981202198769
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (0, 0, 0, dx2y2, up)
+	(0, 0, 0, d3z2r2, dn), (1, 0, 0, px, dn)
+	j = 1/2, m = -1/2, bonding = -1, weight = 0.00800798120219872
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (0, 0, 0, dx2y2, up)
+	(0, 0, 0, d3z2r2, dn), (1, 0, 0, px, up)
+	j = 1/2, m = -1/2, bonding = -1, weight = 0.004885580071057141
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (0, 0, 0, dx2y2, up)
+	(0, 0, 0, d3z2r2, dn), (1, 0, 0, px, up)
+	j = 1/2, m = 1/2, bonding = -1, weight = 0.004885580071057065
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, up), (0, 0, 0, dx2y2, up)
+	(0, 0, 0, d3z2r2, dn), (1, 0, 0, px, up)
+	j = 1/2, m = 1/2, bonding = -1, weight = 0.0032496059817923107
+
+	(0, 0, 2, d3z2r2, dn), (0, 0, 2, dx2y2, dn), (0, 0, 0, dx2y2, up)
+	(0, 0, 0, d3z2r2, dn), (1, 0, 0, px, dn)
+	j = 1/2, m = -1/2, bonding = -1, weight = 0.0032496059817923
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (0, 0, 0, dx2y2, up)
+	(0, 0, 0, d3z2r2, dn), (1, 0, 0, px, dn)
+	j = 1/2, m = -1/2, bonding = -1, weight = 0.00210855739905273
+
+	(0, 0, 2, d3z2r2, dn), (0, 0, 2, dx2y2, dn), (0, 0, 0, dx2y2, up)
+	(0, 0, 0, d3z2r2, dn), (1, 0, 0, px, up)
+	j = 1/2, m = 1/2, bonding = -1, weight = 0.0021085573990526772
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (0, 0, 0, d3z2r2, up)
+	(0, 0, 0, dx2y2, dn), (1, 0, 0, px, dn)
+	j = 1/2, m = 1/2, bonding = -1, weight = 6.400589974997755e-05
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, up), (0, 0, 0, dx2y2, up)
+	(0, 0, 0, d3z2r2, dn), (1, 0, 0, px, dn)
+	j = 1/2, m = -1/2, bonding = -1, weight = 6.400589974997355e-05
+
+	(0, 0, 2), (0, 0, 2), (0, 0, 0), (0, 0, 0), (1, 0, 0),dz2dx2_dz2dx2,j = 3/2: 0.009198256379757602
+
+	(0, 0, 2, d3z2r2, dn), (0, 0, 2, dx2y2, dn), (0, 0, 0, d3z2r2, up)
+	(0, 0, 0, dx2y2, up), (1, 0, 0, px, dn)
+	j = 3/2, m = 1/2, bonding = -1, weight = 0.0024161268038374283
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	(0, 0, 0, dx2y2, dn), (1, 0, 0, px, dn)
+	j = 3/2, m = -1/2, bonding = -1, weight = 0.0024161268038373975
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (0, 0, 0, d3z2r2, up)
+	(0, 0, 0, dx2y2, up), (1, 0, 0, px, dn)
+	j = 3/2, m = 1/2, bonding = -1, weight = 0.0019767001629508087
+
+	(0, 0, 2, d3z2r2, dn), (0, 0, 2, dx2y2, dn), (0, 0, 0, d3z2r2, up)
+	(0, 0, 0, dx2y2, dn), (1, 0, 0, px, dn)
+	j = 3/2, m = -1/2, bonding = -1, weight = 0.001976700162950795
+
+	(0, 0, 2, d3z2r2, dn), (0, 0, 2, dx2y2, dn), (0, 0, 0, d3z2r2, dn)
+	(0, 0, 0, dx2y2, dn), (1, 0, 0, px, dn)
+	j = 3/2, m = -1/2, bonding = -1, weight = 0.0001528846512152586
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (0, 0, 0, d3z2r2, up)
+	(0, 0, 0, dx2y2, dn), (1, 0, 0, px, dn)
+	j = 3/2, m = 1/2, bonding = -1, weight = 0.00015288465121525647
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (0, 0, 0, d3z2r2, dn)
+	(0, 0, 0, dx2y2, dn), (1, 0, 0, px, dn)
+	j = 3/2, m = -1/2, bonding = -1, weight = 5.341657187533043e-05
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, up), (0, 0, 0, d3z2r2, up)
+	(0, 0, 0, dx2y2, dn), (1, 0, 0, px, dn)
+	j = 3/2, m = 1/2, bonding = -1, weight = 5.3416571875329194e-05
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	(0, 0, 0, dx2y2, dn), (1, 0, 0, px, up)
+	j = 3/2, m = 3/2, bonding = -1, weight = 1.5609935061549757e-29
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (0, 0, 0, d3z2r2, dn)
+	(0, 0, 0, dx2y2, dn), (1, 0, 0, px, up)
+	j = 3/2, m = 3/2, bonding = -1, weight = 8.926728401190636e-30
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (0, 0, 0, d3z2r2, up)
+	(0, 0, 0, dx2y2, up), (1, 0, 0, px, up)
+	j = 3/2, m = -3/2, bonding = -1, weight = 4.79259210139224e-31
+
+	(0, 0, 2, d3z2r2, dn), (0, 0, 2, dx2y2, dn), (0, 0, 0, d3z2r2, dn)
+	(0, 0, 0, dx2y2, dn), (1, 0, 0, px, up)
+	j = 3/2, m = 3/2, bonding = -1, weight = 4.230881708742196e-31
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (0, 0, 0, d3z2r2, up)
+	(0, 0, 0, dx2y2, dn), (1, 0, 0, px, up)
+	j = 3/2, m = -3/2, bonding = -1, weight = 4.192170904889128e-31
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (0, 0, 0, d3z2r2, dn)
+	(0, 0, 0, dx2y2, dn), (1, 0, 0, px, up)
+	j = 3/2, m = -3/2, bonding = -1, weight = 2.705972561287156e-32
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (0, 0, 0, d3z2r2, up)
+	(0, 0, 0, dx2y2, up), (1, 0, 0, px, dn)
+	j = 3/2, m = -3/2, bonding = -1, weight = 7.258460559490123e-33
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, up), (0, 0, 0, d3z2r2, up)
+	(0, 0, 0, dx2y2, up), (1, 0, 0, px, dn)
+	j = 3/2, m = 3/2, bonding = -1, weight = 2.7423713968971393e-33
+
+	(0, 0, 2), (0, 0, 2), (0, 0, 0), (0, 0, 0), (1, 0, 0),dx2dx2_dz2dx2,Sz=+-1/2: 0.003223301155101488
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, up), (0, 0, 0, dx2y2, up)
+	(0, 0, 0, dx2y2, dn), (1, 0, 0, px, dn)
+	S_Ni1 = 1, Sz_Ni1 = 1, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.00091262492143394
+
+	(0, 0, 2, d3z2r2, dn), (0, 0, 2, dx2y2, dn), (0, 0, 0, dx2y2, up)
+	(0, 0, 0, dx2y2, dn), (1, 0, 0, px, up)
+	S_Ni1 = 1, Sz_Ni1 = -1, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.0009126249214339364
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (0, 0, 0, dx2y2, up)
+	(0, 0, 0, dx2y2, dn), (1, 0, 0, px, dn)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.00025655569936743636
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (0, 0, 0, dx2y2, up)
+	(0, 0, 0, dx2y2, dn), (1, 0, 0, px, up)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.00025655569936743197
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn), (0, 0, 0, d3z2r2, up)
+	(0, 0, 0, dx2y2, up), (1, 0, 0, px, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 1,bonding = 0, weight = 0.00016493367948070033
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn), (0, 0, 0, d3z2r2, dn)
+	(0, 0, 0, dx2y2, dn), (1, 0, 0, px, up)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = -1,bonding = 0, weight = 0.00016493367948069686
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (0, 0, 0, dx2y2, up)
+	(0, 0, 0, dx2y2, dn), (1, 0, 0, px, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.0001626176268250213
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (0, 0, 0, dx2y2, up)
+	(0, 0, 0, dx2y2, dn), (1, 0, 0, px, up)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.00016261762682501842
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn), (0, 0, 0, d3z2r2, up)
+	(0, 0, 0, dx2y2, dn), (1, 0, 0, px, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 0,bonding = 0, weight = 0.00010838468299424544
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn), (0, 0, 0, dx2y2, up)
+	(0, 0, 0, d3z2r2, dn), (1, 0, 0, px, up)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.00010838468299424502
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn), (0, 0, 0, dx2y2, up)
+	(0, 0, 0, d3z2r2, dn), (1, 0, 0, px, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 6.533967449408518e-06
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn), (0, 0, 0, d3z2r2, up)
+	(0, 0, 0, dx2y2, dn), (1, 0, 0, px, up)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 0,bonding = 0, weight = 6.5339674494077655e-06
+
+	(0, 0, 2), (0, 0, 2), (-1, 0, 0), (0, 0, 0), (0, 0, 0),dx2dx2_dz2dx2,Sz=+-1/2: 0.0032233011551014877
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, up), (-1, 0, 0, px, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 1, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.0009126249214339398
+
+	(0, 0, 2, d3z2r2, dn), (0, 0, 2, dx2y2, dn), (-1, 0, 0, px, up)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = -1, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.0009126249214339361
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (-1, 0, 0, px, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.00025655569936743685
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (-1, 0, 0, px, up)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.00025655569936743224
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn), (-1, 0, 0, px, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, up)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 1,bonding = 0, weight = 0.00016493367948069922
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn), (-1, 0, 0, px, up)
+	(0, 0, 0, d3z2r2, dn), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = -1,bonding = 0, weight = 0.00016493367948069678
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (-1, 0, 0, px, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.0001626176268250214
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (-1, 0, 0, px, up)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.00016261762682501842
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn), (-1, 0, 0, px, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 0,bonding = 0, weight = 0.0001083846829942454
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn), (-1, 0, 0, px, up)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.00010838468299424517
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn), (-1, 0, 0, px, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 6.5339674494085e-06
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn), (-1, 0, 0, px, up)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 0,bonding = 0, weight = 6.533967449407922e-06
+
+	(0, 0, 2), (0, 0, 2), (0, 0, 0), (0, 0, 0), (0, 1, 0),dx2dx2_dz2dx2,Sz=+-1/2: 0.003223301155101484
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, up), (0, 0, 0, dx2y2, up)
+	(0, 0, 0, dx2y2, dn), (0, 1, 0, py, dn)
+	S_Ni1 = 1, Sz_Ni1 = 1, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.000912624921433946
+
+	(0, 0, 2, d3z2r2, dn), (0, 0, 2, dx2y2, dn), (0, 0, 0, dx2y2, up)
+	(0, 0, 0, dx2y2, dn), (0, 1, 0, py, up)
+	S_Ni1 = 1, Sz_Ni1 = -1, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.0009126249214339332
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (0, 0, 0, dx2y2, up)
+	(0, 0, 0, dx2y2, dn), (0, 1, 0, py, dn)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.00025655569936743717
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (0, 0, 0, dx2y2, up)
+	(0, 0, 0, dx2y2, dn), (0, 1, 0, py, up)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.000256555699367432
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn), (0, 0, 0, d3z2r2, dn)
+	(0, 0, 0, dx2y2, dn), (0, 1, 0, py, up)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = -1,bonding = 0, weight = 0.00016493367948069719
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn), (0, 0, 0, d3z2r2, up)
+	(0, 0, 0, dx2y2, up), (0, 1, 0, py, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 1,bonding = 0, weight = 0.00016493367948069155
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (0, 0, 0, dx2y2, up)
+	(0, 0, 0, dx2y2, dn), (0, 1, 0, py, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.00016261762682502143
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (0, 0, 0, dx2y2, up)
+	(0, 0, 0, dx2y2, dn), (0, 1, 0, py, up)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.00016261762682501734
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn), (0, 0, 0, dx2y2, up)
+	(0, 0, 0, d3z2r2, dn), (0, 1, 0, py, up)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.00010838468299424643
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn), (0, 0, 0, d3z2r2, up)
+	(0, 0, 0, dx2y2, dn), (0, 1, 0, py, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 0,bonding = 0, weight = 0.00010838468299424452
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn), (0, 0, 0, d3z2r2, up)
+	(0, 0, 0, dx2y2, dn), (0, 1, 0, py, up)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 0,bonding = 0, weight = 6.53396744940922e-06
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn), (0, 0, 0, dx2y2, up)
+	(0, 0, 0, d3z2r2, dn), (0, 1, 0, py, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 6.533967449408213e-06
+
+	(0, 0, 2), (0, 0, 2), (0, -1, 0), (0, 0, 0), (0, 0, 0),dx2dx2_dz2dx2,Sz=+-1/2: 0.0032233011551014833
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, up), (0, -1, 0, py, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 1, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.0009126249214339451
+
+	(0, 0, 2, d3z2r2, dn), (0, 0, 2, dx2y2, dn), (0, -1, 0, py, up)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = -1, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.0009126249214339329
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (0, -1, 0, py, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.00025655569936743685
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (0, -1, 0, py, up)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.00025655569936743105
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn), (0, -1, 0, py, up)
+	(0, 0, 0, d3z2r2, dn), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = -1,bonding = 0, weight = 0.0001649336794806979
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn), (0, -1, 0, py, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, up)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 1,bonding = 0, weight = 0.0001649336794806923
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (0, -1, 0, py, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.00016261762682502154
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (0, -1, 0, py, up)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.00016261762682501777
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn), (0, -1, 0, py, up)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.00010838468299424608
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn), (0, -1, 0, py, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 0,bonding = 0, weight = 0.00010838468299424465
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn), (0, -1, 0, py, up)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 0,bonding = 0, weight = 6.533967449409221e-06
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn), (0, -1, 0, py, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 6.5339674494083025e-06
+
+	(0, 0, 2), (0, 0, 2), (0, 1, 2), (0, 0, 0), (0, 0, 0),dx2dx2_dz2dx2,Sz=+-1/2: 0.00322330115510148
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn), (0, 1, 2, py, up)
+	(0, 0, 0, d3z2r2, dn), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = -1,bonding = 0, weight = 0.0009126249214339386
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn), (0, 1, 2, py, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, up)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 1,bonding = 0, weight = 0.000912624921433909
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn), (0, 1, 2, py, up)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.00025655569936744677
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn), (0, 1, 2, py, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 0,bonding = 0, weight = 0.00025655569936743376
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, up), (0, 1, 2, py, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 1, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.00016493367948069998
+
+	(0, 0, 2, d3z2r2, dn), (0, 0, 2, dx2y2, dn), (0, 1, 2, py, up)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = -1, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.00016493367948069613
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn), (0, 1, 2, py, up)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 0,bonding = 0, weight = 0.0001626176268250303
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn), (0, 1, 2, py, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.00016261762682501994
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (0, 1, 2, py, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.00010838468299424554
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (0, 1, 2, py, up)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.00010838468299424377
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (0, 1, 2, py, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 6.53396744940872e-06
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (0, 1, 2, py, up)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 6.533967449407822e-06
+
+	(0, -1, 2), (0, 0, 2), (0, 0, 2), (0, 0, 0), (0, 0, 0),dx2dx2_dz2dx2,Sz=+-1/2: 0.003223301155101479
+
+	(0, -1, 2, py, up), (0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn)
+	(0, 0, 0, d3z2r2, dn), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = -1,bonding = 0, weight = 0.0009126249214339374
+
+	(0, -1, 2, py, dn), (0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, up)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 1,bonding = 0, weight = 0.000912624921433908
+
+	(0, -1, 2, py, up), (0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.00025655569936744693
+
+	(0, -1, 2, py, dn), (0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 0,bonding = 0, weight = 0.000256555699367434
+
+	(0, -1, 2, py, dn), (0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, up)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 1, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.00016493367948070047
+
+	(0, -1, 2, py, up), (0, 0, 2, d3z2r2, dn), (0, 0, 2, dx2y2, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = -1, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.0001649336794806963
+
+	(0, -1, 2, py, up), (0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 0,bonding = 0, weight = 0.00016261762682502924
+
+	(0, -1, 2, py, dn), (0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.00016261762682502024
+
+	(0, -1, 2, py, dn), (0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.00010838468299424552
+
+	(0, -1, 2, py, up), (0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.00010838468299424415
+
+	(0, -1, 2, py, dn), (0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 6.53396744940871e-06
+
+	(0, -1, 2, py, up), (0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 6.5339674494079484e-06
+
+	(-1, 0, 2), (0, 0, 2), (0, 0, 2), (0, 0, 0), (0, 0, 0),dx2dx2_dz2dx2,Sz=+-1/2: 0.0032233011551014755
+
+	(-1, 0, 2, px, up), (0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn)
+	(0, 0, 0, d3z2r2, dn), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = -1,bonding = 0, weight = 0.0009126249214339316
+
+	(-1, 0, 2, px, dn), (0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, up)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 1,bonding = 0, weight = 0.0009126249214339106
+
+	(-1, 0, 2, px, up), (0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.0002565556993674472
+
+	(-1, 0, 2, px, dn), (0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 0,bonding = 0, weight = 0.00025655569936743533
+
+	(-1, 0, 2, px, up), (0, 0, 2, d3z2r2, dn), (0, 0, 2, dx2y2, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = -1, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.0001649336794806996
+
+	(-1, 0, 2, px, dn), (0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, up)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 1, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.0001649336794806946
+
+	(-1, 0, 2, px, up), (0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 0,bonding = 0, weight = 0.0001626176268250302
+
+	(-1, 0, 2, px, dn), (0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.00016261762682502005
+
+	(-1, 0, 2, px, dn), (0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.00010838468299424494
+
+	(-1, 0, 2, px, up), (0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.00010838468299424464
+
+	(-1, 0, 2, px, up), (0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 6.533967449408711e-06
+
+	(-1, 0, 2, px, dn), (0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 6.533967449408109e-06
+
+	(0, 0, 2), (0, 0, 2), (1, 0, 2), (0, 0, 0), (0, 0, 0),dx2dx2_dz2dx2,Sz=+-1/2: 0.0032233011551014725
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn), (1, 0, 2, px, up)
+	(0, 0, 0, d3z2r2, dn), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = -1,bonding = 0, weight = 0.0009126249214339318
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn), (1, 0, 2, px, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, up)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 1,bonding = 0, weight = 0.00091262492143391
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn), (1, 0, 2, px, up)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.00025655569936744514
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn), (1, 0, 2, px, dn)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 0,bonding = 0, weight = 0.0002565556993674351
+
+	(0, 0, 2, d3z2r2, dn), (0, 0, 2, dx2y2, dn), (1, 0, 2, px, up)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = -1, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.00016493367948069984
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, up), (1, 0, 2, px, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 1, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.0001649336794806944
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn), (1, 0, 2, px, up)
+	(0, 0, 0, d3z2r2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 1, Sz_Ni2 = 0,bonding = 0, weight = 0.0001626176268250289
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, dx2y2, dn), (1, 0, 2, px, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, d3z2r2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.00016261762682502
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (1, 0, 2, px, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.00010838468299424518
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (1, 0, 2, px, up)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 0.00010838468299424482
+
+	(0, 0, 2, d3z2r2, up), (0, 0, 2, dx2y2, dn), (1, 0, 2, px, up)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 1, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 6.533967449408762e-06
+
+	(0, 0, 2, dx2y2, up), (0, 0, 2, d3z2r2, dn), (1, 0, 2, px, dn)
+	(0, 0, 0, dx2y2, up), (0, 0, 0, dx2y2, dn)
+	S_Ni1 = 0, Sz_Ni1 = 0, S_Ni2 = 0, Sz_Ni2 = 0,bonding = 0, weight = 6.533967449408129e-06
+
+
+

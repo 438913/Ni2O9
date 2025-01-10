@@ -1,0 +1,4 @@
+
+Can't find file /home/jgw/.vnc/mu01:58.pid
+You'll have to kill the Xvnc process manually
+
