@@ -40,16 +40,31 @@ elif pressure == 16:
     epNis = np.arange(2.75, 2.751, 1.0)
     epbilayers = np.arange(3.14, 3.141, 1.0)
 elif pressure == 29.5:
-    edCu = {'d3z2r2': 0.095,
-            'dx2y2': 0,
+    # edCu = {'d3z2r2': 0.095,
+    #         'dx2y2': 0,
+    #         'dxy': 1.06,
+    #         'dxz': 0.94,
+    #         'dyz': 0.94}
+    # epNis = np.arange(2.9, 2.91, 1.0)
+    # epbilayers = np.arange(3.24, 3.241, 1.0)
+
+    edCu = {'d3z2r2': 0.0,
+            'dx2y2': 0.0,
             'dxy': 1.06,
             'dxz': 0.94,
             'dyz': 0.94}
-    epNis = np.arange(2.9, 2.91, 1.0)
-    epbilayers = np.arange(3.24, 3.241, 1.0)
+    epNis = np.arange(0, 0.1, 1.0)
+    epbilayers = np.arange(0, 0.1, 1.0)
 
+# edNi = {'d3z2r2': 0.37,
+#         'dx2y2': 0.15,
+#         'dxy': 1.06,
+#         'dxz': 0.94,
+#         'dyz': 0.94}
+# epCus = np.arange(1.5, 1.51, 1.0)
 edNi = edCu
 epCus = epNis
+
 ANis = np.arange(6.0, 6.01, 1.0)
 ACus = ANis
 B = 0.15
@@ -66,7 +81,7 @@ C = 0.58
 
 # IMPORTANT: keep all hoppings below positive to avoid confusion
 #            hopping signs are considered in dispersion separately
-Norb = 8
+Norb = 5
 if Norb == 8 or Norb == 5:
     # tpds = [0.00001]  # for check_CuO4_eigenvalues.py
     if pressure == 0:
@@ -94,16 +109,20 @@ if Norb == 8 or Norb == 5:
         tapzds = np.linspace(1.61, 1.61, num=1, endpoint=True)
         tapzps = np.linspace(0.484, 0.484, num=1, endpoint=True)
     if pressure == 29.5:
-        tpds = np.linspace(1.58, 1.58, num=1, endpoint=True)
-        # tpds = np.linspace(3.6, 3.6, num=1, endpoint=True)
+        # tpds = np.linspace(1.58, 1.58, num=1, endpoint=True)
+        tpds = np.linspace(0.0, 0.0, num=1, endpoint=True)
 
-        tpps = [0.562]
+        # tpps = [0.562]
+        tpps = [0.0]
         tapzds = np.linspace(1.66, 1.66, num=1, endpoint=True)
-        # tapzds = np.linspace(3.6, 3.6, num=1, endpoint=True)
+        # tapzds = np.linspace(0.0, 15, num=1, endpoint=True)
 
-        tapzps = np.linspace(0.487, 0.487, num=1, endpoint=True)
-    tz_a1a1 = 0.028
-    tz_b1b1 = 0.047
+        # tapzps = np.linspace(0.487, 0.487, num=1, endpoint=True)
+        tapzps = np.linspace(0.0, 0.0, num=1, endpoint=True)
+    # tz_a1a1 = 0.028
+    # tz_b1b1 = 0.047
+    tz_a1a1 = 0.0
+    tz_b1b1 = 0.0
 
 elif Norb == 10 or Norb == 12:
     # pdp = sqrt(3)/4*pds so that tpd(b2)=tpd(b1)/2: see Eskes's thesis and 1990 paper
@@ -193,6 +212,8 @@ orbs = Ni_Cu_orbs + O_orbs + Obilayer_orbs
 
 Upps = [4.0]
 Usss = [4.0]
+# Upps = [0.0]
+# Usss = [0.0]
 symmetries = ['1A1', '3B1', '3B1', '1A2', '3A2', '1E', '3E']
 print("compute A(w) for symmetries = ", symmetries)
 

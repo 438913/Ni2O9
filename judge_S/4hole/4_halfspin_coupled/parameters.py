@@ -66,7 +66,7 @@ C = 0.58
 
 # IMPORTANT: keep all hoppings below positive to avoid confusion
 #            hopping signs are considered in dispersion separately
-Norb = 8
+Norb = 5
 if Norb == 8 or Norb == 5:
     # tpds = [0.00001]  # for check_CuO4_eigenvalues.py
     if pressure == 0:
@@ -94,10 +94,11 @@ if Norb == 8 or Norb == 5:
         tapzds = np.linspace(1.61, 1.61, num=1, endpoint=True)
         tapzps = np.linspace(0.484, 0.484, num=1, endpoint=True)
     if pressure == 29.5:
+        # tpds = np.linspace(1.58, 1.58, num=1, endpoint=True)
         tpds = np.linspace(1.58, 1.58, num=1, endpoint=True)
-        # tpds = np.linspace(3.6, 3.6, num=1, endpoint=True)
 
         tpps = [0.562]
+
         tapzds = np.linspace(1.66, 1.66, num=1, endpoint=True)
         # tapzds = np.linspace(3.6, 3.6, num=1, endpoint=True)
 

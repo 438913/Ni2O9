@@ -46,18 +46,15 @@ C = 0.58
 Norb = 5
 if Norb == 8 or Norb == 5:
 
-    # tpds_list = [1.38, 1.43, 1.46, 1.52, 1.58]
+    tpds_list = [1.38, 1.43, 1.46, 1.52, 1.58]
     # tpds_list = np.linspace(0, 4.2, num=22, endpoint=True)
-    tpds_list = [0, 0, 0, 0, 0.6]
     tpps_list = [0.537, 0.548, 0.554, 0.566, 0.562]
     # tpps_list = [0.537, 0.548, 0.554, 0.566, 0.0]
 
     tapzds_list = [1.48, 1.53, 1.55, 1.61, 1.66]
-    # tapzds_list = [0, 0, 0, 0, 0.0]
     # tapzds_list = np.linspace(0, 4.2, num=22, endpoint=True)
 
     tapzps_list = [0.445, 0.458, 0.468, 0.484, 0.487]
-    # tapzps_list = [0, 0, 0, 0, 0.0]
 
     tz_a1a1 = 0.028
     # tz_a1a1 = 0.0

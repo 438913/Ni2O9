@@ -8,9 +8,9 @@ data_6hole = []
 hole_num = [4, 5, 6]
 # 按照每行读取基态能量数据, 1-5行为A=5的数据,
 # 6-10行为A=6的数据, 11-15行为A=7的数据
-title_name = 'tpdx2 = tpdz2 / 1.1'
+title_name = 'DFT tpdz2'
 for num in hole_num:
-    with open(f'./dx2_divide_dz2_1point1/val_{num}hole', 'r') as file:
+    with open(f'./dft_tpdz2/val_{num}hole', 'r') as file:
         for line in file:
             number = re.search(r'-?\d+(\.\d+)?', line)
             if number is None:
@@ -55,18 +55,65 @@ for key in E_4holes.keys():
 # 画 x = 0的横线
 ax.plot([0, 30], [0, 0], 'k', linewidth=1.0)
 
-ax.set_title(title_name)
+# ax.set_title(title_name)
 ax.set_xlabel('P(GPa)', fontsize=15)
 ax.set_ylabel(r'$\Delta$E(meV)', fontsize=15)
 # ax.set_ylabel(r'$\Delta$E(eV)', fontsize=15)
 ax.set_xlim(0, 30)
 # ax.set_ylim(0.15, 0.35)
-ax.set_ylim(0, 30)
-ax.set_yticks([0, 5, 10, 15, 20, 25, 30])
+ax.set_ylim(-5, 20)
+ax.set_yticks([-5, 0, 5, 10, 15, 20])
 # ax.set_yticks([0.15, 0.2, 0.25, 0.3, 0.35])
 plt.xticks(fontsize=12)
 plt.yticks(fontsize=12)
 ax.legend(fontsize=16)
 fig.tight_layout()
 fig.show()
-fig.savefig('Ni2O9_2layer_deltaE(4_6_2multiply5)_vs_A_pressure.pdf')
+fig.savefig('fig10.pdf')
+
+fig1, ax1 = plt.subplots()
+fig2, ax2 = plt.subplots()
+fig3, ax3 = plt.subplots()
+for key in E_4holes.keys():
+    E1 = np.array(E_4holes[key])
+    ax1.plot(pressure, E1, line_styles[key], marker=Marker_styles[key], markersize=6, label=key)
+    E2 = np.array(E_5holes[key])
+    ax2.plot(pressure, E2, line_styles[key], marker=Marker_styles[key], markersize=6, label=key)
+    E3 = np.array(E_6holes[key])
+    ax3.plot(pressure, E3, line_styles[key], marker=Marker_styles[key], markersize=6, label=key)
+
+ax1.set_xlabel('P(GPa)', fontsize=15)
+ax2.set_xlabel('P(GPa)', fontsize=15)
+ax3.set_xlabel('P(GPa)', fontsize=15)
+ax1.set_ylabel(r'E(eV)', fontsize=15)
+ax2.set_ylabel(r'E(eV)', fontsize=15)
+ax3.set_ylabel(r'E(eV)', fontsize=15)
+
+ax1.set_title('4 hole', fontsize=18)
+ax2.set_title('5 hole', fontsize=18)
+ax3.set_title('6 hole', fontsize=18)
+
+ax1.set_xlim(0, 30)
+ax2.set_xlim(0, 30)
+ax3.set_xlim(0, 30)
+ax1.set_ylim(0, 12)
+ax2.set_ylim(0, 12)
+ax3.set_ylim(0, 12)
+ax1.tick_params(labelsize=14)
+ax2.tick_params(labelsize=14)
+ax3.tick_params(labelsize=14)
+
+ax1.legend(fontsize=16)
+ax2.legend(fontsize=16)
+ax3.legend(fontsize=16)
+
+fig1.tight_layout()
+fig2.tight_layout()
+fig3.tight_layout()
+
+fig1.show()
+fig2.show()
+fig3.show()
+fig1.savefig('fig10a.pdf')
+fig2.savefig('fig10b.pdf')
+fig3.savefig('fig10c.pdf')

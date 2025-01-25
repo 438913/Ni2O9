@@ -725,17 +725,17 @@ def create_coupled_representation_matrix(VS, S_Ni_val, Sz_Ni_val, S_Cu_val, Sz_C
         state = [(orb1, x1, y1, z1), (orb2, x2, y2, z2), (orb3, x3, y3, z3), (orb4, x4, y4, z4), (orb5, x5, y5, z5)]
         state.sort()
 
-        choose_state = [('d3z2r2', 0, 0, 2), ('dx2y2', 0, 0, 2), ('apz', 0, 0, 1), ('d3z2r2', 0, 0, 0), ('dx2y2', 0, 0, 0)]
+        choose_state = [('d3z2r2', 0, 0, 2), ('dx2y2', 0, 0, 2), ('px', 1, 0, 0), ('d3z2r2', 0, 0, 0), ('dx2y2', 0, 0, 0)]
         choose_state.sort()
         if state == choose_state:
-            i1 = orb_list.index('apz')
-            s_apz = s_list[i1]
+            i1 = orb_list.index('px')
+            s_O = s_list[i1]
             S_Ni, Sz_Ni = S_Ni_val[i], Sz_Ni_val[i]
             S_Cu, Sz_Cu = S_Cu_val[i], Sz_Cu_val[i]
 
             S_Ni, Sz_Ni = Rational(S_Ni), Rational(Sz_Ni)
             S_Cu, Sz_Cu = Rational(S_Cu), Rational(Sz_Cu)
-            Sz3 = half if s_apz == 'up' else -half
+            Sz3 = half if s_O == 'up' else -half
 
             uncoupled_idx.append(i)
             uncoupled_state.append((S_Ni, Sz_Ni, S_Cu, Sz_Cu, Sz3))

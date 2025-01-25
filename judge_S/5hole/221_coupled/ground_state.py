@@ -9,7 +9,7 @@ import scipy.sparse as sps
 import scipy.sparse.linalg
 
 import parameters as pam
-import hamiltonian_d9 as ham
+import hamiltonian as ham
 import lattice as lat
 import variational_space as vs
 import utility as util
@@ -38,16 +38,17 @@ def reorder_z(slabel):
             state_label = [s2, orb2, x2, y2, z2, s1, orb1, x1, y1, z1]
         elif z2 == z1 and orb1 == 'dx2y2' and orb2 == 'd3z2r2':
             state_label = [s2, orb2, x2, y2, z2, s1, orb1, x1, y1, z1]
-    elif orb1 in pam.O_orbs and orb2 in pam.Obilayer_orbs:
-        state_label = [s2, orb2, x2, y2, z2, s1, orb1, x1, y1, z1]
-    elif orb1 in pam.Obilayer_orbs and orb2 in pam.Ni_Cu_orbs:
-        state_label = [s2, orb2, x2, y2, z2, s1, orb1, x1, y1, z1]
+
     elif orb1 in pam.O_orbs and orb2 in pam.Ni_Cu_orbs:
         state_label = [s2, orb2, x2, y2, z2, s1, orb1, x1, y1, z1]
 
     elif orb1 in pam.O_orbs and orb2 in pam.O_orbs:
         if z2 > z1:
             state_label = [s2, orb2, x2, y2, z2, s1, orb1, x1, y1, z1]
+    elif orb1 in pam.O_orbs and orb2 in pam.Obilayer_orbs:
+        state_label = [s2, orb2, x2, y2, z2, s1, orb1, x1, y1, z1]
+    elif orb1 in pam.Obilayer_orbs and orb2 in pam.Ni_Cu_orbs:
+        state_label = [s2, orb2, x2, y2, z2, s1, orb1, x1, y1, z1]
 
     return state_label
 
@@ -73,6 +74,11 @@ def make_z_canonical(slabel):
     x4 = slabel[17];
     y4 = slabel[18];
     z4 = slabel[19];
+    s5 = slabel[20];
+    orb5 = slabel[21];
+    x5 = slabel[22];
+    y5 = slabel[23];
+    z5 = slabel[24];
     '''
     For three holes, the original candidate state is c_1*c_2*c_3|vac>
     To generate the canonical_state:
@@ -108,7 +114,29 @@ def make_z_canonical(slabel):
             elif tmp14 != tlabel:
                 slabel2 = [s4, orb4, x4, y4, z4] + slabel[0:15]
 
-    return slabel2
+    tlabel = slabel2[15:20] + [s5, orb5, x5, y5, z5]
+    tmp45 = reorder_z(tlabel)
+    if tmp45 == tlabel:
+        slabel3 = slabel2 + [s5, orb5, x5, y5, z5]
+    else:
+        tlabel = slabel2[10:15] + [s5, orb5, x5, y5, z5]
+        tmp35 = reorder_z(tlabel)
+        if tmp35 == tlabel:
+            slabel3 = slabel2[0:15] + [s5, orb5, x5, y5, z5] + slabel2[15:20]
+        else:
+            tlabel = slabel2[5:10] + [s5, orb5, x5, y5, z5]
+            tmp25 = reorder_z(tlabel)
+            if tmp25 == tlabel:
+                slabel3 = slabel2[0:10] + [s5, orb5, x5, y5, z5] + slabel2[10:20]
+            else:
+                tlabel = slabel2[0:5] + [s5, orb5, x5, y5, z5]
+                tmp15 = reorder_z(tlabel)
+                if tmp15 == tlabel:
+                    slabel3 = slabel2[0:5] + [s5, orb5, x5, y5, z5] + slabel2[5:20]
+                else:
+                    slabel3 = [s5, orb5, x5, y5, z5] + slabel2
+
+    return slabel3
 
 
 def state_classification(state_param):
@@ -124,7 +152,7 @@ def state_classification(state_param):
     O_top = 0
     dL_type = ['empty', 'empty', 'empty']
     orb_type = ['empty', 'empty', 'empty']
-    simple_orb = {'d3z2r2': 'dz2', 'dx2y2': 'dx2', 'dxy': 'dxy', 'dxz': 'dxz', 'dyz': 'dyz'}
+    simple_orb = {'d3z2r2': 'dz2', 'dx2y2': 'dx2'}
     Sz = 0
     # 按照轨道的字典序对state_param排序
     state_param.sort(key=lambda hole: hole[-2])
@@ -187,20 +215,20 @@ def state_classification(state_param):
     else:
         orb_type.sort()
     orb_type = '_'.join(orb_type)
-    if Sz == 0:
-        Sz = '0'
-    elif Sz == 1 or Sz == -1:
-        Sz = '+-1'
+    if Sz == 1 / 2 or Sz == -1 / 2:
+        Sz = '+-1/2'
+    elif Sz == 3 / 2 or Sz == -3 / 2:
+        Sz = '+-3/2'
     else:
-        Sz = '+-2'
+        Sz = '+-5/2'
     if orb_type == '':
-        orb_type = f'Sz= {Sz}'
+        orb_type = f'Sz={Sz}'
     else:
         orb_type = f'{orb_type},Sz={Sz}'
     return dL_type, orb_type
 
 
-def get_ground_state(matrix, VS, S_Ni_val, Sz_Ni_val, S_Cu_val, Sz_Cu_val, coupled_idx, jm_list, bonding_val):
+def get_ground_state(matrix, VS, S_Ni_val, Sz_Ni_val, S_Cu_val, Sz_Cu_val, coupled_idx, jm_list, U_coupled_d,bonding_val):
     '''
     Obtain the ground state info, namely the lowest peak in Aw_dd's component
     in particular how much weight of various d8 channels: a1^2, b1^2, b2^2, e^2
@@ -210,6 +238,7 @@ def get_ground_state(matrix, VS, S_Ni_val, Sz_Ni_val, S_Cu_val, Sz_Cu_val, coupl
     Neval = pam.Neval
     vals, vecs = sps.linalg.eigsh(matrix, k=Neval, which='SA')
     vals.sort()
+    vecs = U_coupled_d @ abs(vecs)
     print('lowest eigenvalue of H from np.linalg.eigsh = ')
     print(vals)
     number = 1
@@ -218,7 +247,9 @@ def get_ground_state(matrix, VS, S_Ni_val, Sz_Ni_val, S_Cu_val, Sz_Cu_val, coupl
             number = i
             break
     print('Degeneracy of ground state is ', number)
+    # weight_average = np.average(abs(vecs[:, :number]) ** 2, axis=1)
     weight_average = np.average(abs(vecs[:, :number]) ** 2, axis=1)
+
     with open('./data/energy_spectrum', 'a') as f:
         f.write('lowest eigenvalue of H from np.linalg.eigsh = \n')
         f.write(str(vals) + '\n\n')
@@ -245,19 +276,22 @@ def get_ground_state(matrix, VS, S_Ni_val, Sz_Ni_val, S_Cu_val, Sz_Cu_val, coupl
         s2 = state['hole2_spin']
         s3 = state['hole3_spin']
         s4 = state['hole4_spin']
+        s5 = state['hole5_spin']
         orb1 = state['hole1_orb']
         orb2 = state['hole2_orb']
         orb3 = state['hole3_orb']
         orb4 = state['hole4_orb']
+        orb5 = state['hole5_orb']
         x1, y1, z1 = state['hole1_coord']
         x2, y2, z2 = state['hole2_coord']
         x3, y3, z3 = state['hole3_coord']
         x4, y4, z4 = state['hole4_coord']
+        x5, y5, z5 = state['hole5_coord']
         bonding = bonding_val[istate]
 
         input_state = [(x1, y1, z1, orb1, s1), (x2, y2, z2, orb2, s2), (x3, y3, z3, orb3, s3),
-                       (x4, y4, z4, orb4, s4)]
-        position = f'({x1}, {y1}, {z1}), ({x2}, {y2}, {z2}), ({x3}, {y3}, {z3}), ({x4}, {y4}, {z4})'
+                       (x4, y4, z4, orb4, s4), (x5, y5, z5, orb5, s5)]
+        position = f'({x1}, {y1}, {z1}), ({x2}, {y2}, {z2}), ({x3}, {y3}, {z3}), ({x4}, {y4}, {z4}), ({x5}, {y5}, {z5})'
         dL_type, orb_type = state_classification(input_state)
 
         if istate in coupled_idx:
@@ -265,8 +299,8 @@ def get_ground_state(matrix, VS, S_Ni_val, Sz_Ni_val, S_Cu_val, Sz_Cu_val, coupl
             idx = coupled_idx.index(istate)
             j, _ = jm_list[idx]
             orb_type += f',j = {j}'
-
         # dL_type += f'({bonding})'
+
         orb_type = position + ',' + orb_type
         dL_orb_type = f'{dL_type},{orb_type}'
         if dL_type in dL_weight:
@@ -311,8 +345,8 @@ def get_ground_state(matrix, VS, S_Ni_val, Sz_Ni_val, S_Cu_val, Sz_Cu_val, coupl
             print(f'\t{orb_type}: {weight}\n')
             if i1 == 0:
                 text_orb_max_weight.write(f'\t{orb_type}: {weight}\n\n')
-            # last_weight = 0
-            # weight_num = 1
+            last_weight = 0
+            weight_num = 1
             for istate in dL_orb_istate[dL_orb_type]:
                 weight = weight_average[istate]
                 # if weight < 1e-4:
@@ -325,32 +359,44 @@ def get_ground_state(matrix, VS, S_Ni_val, Sz_Ni_val, S_Cu_val, Sz_Cu_val, coupl
                 #     if i1 == 0:
                 #         text_orb_max_weight.write(f'\tthe same weight number = {weight_num}\n')
                 # last_weight = weight
-                # weight_num = 1
+                weight_num = 1
                 state = VS.get_state(VS.lookup_tbl[istate])
                 s1 = state['hole1_spin']
                 s2 = state['hole2_spin']
                 s3 = state['hole3_spin']
                 s4 = state['hole4_spin']
+                s5 = state['hole5_spin']
                 orb1 = state['hole1_orb']
                 orb2 = state['hole2_orb']
                 orb3 = state['hole3_orb']
                 orb4 = state['hole4_orb']
+                orb5 = state['hole5_orb']
                 x1, y1, z1 = state['hole1_coord']
                 x2, y2, z2 = state['hole2_coord']
                 x3, y3, z3 = state['hole3_coord']
                 x4, y4, z4 = state['hole4_coord']
+                x5, y5, z5 = state['hole5_coord']
+
+                # output = (
+                #     f'\t({x1}, {y1}, {z1}, {orb1}, {s1}), ({x2}, {y2}, {z2}, {orb2}, {s2}), ({x3}, {y3}, {z3}, {orb3}, {s3})\n'
+                #     f'\t({x4}, {y4}, {z4}, {orb4}, {s4}), ({x5}, {y5}, {z5}, {orb5}, {s5})\n'
+                #     f'\tS_Ni1 = {S_Ni_val[istate]}, Sz_Ni1 = {Sz_Ni_val[istate]}, '
+                #     f'S_Ni2 = {S_Cu_val[istate]}, Sz_Ni2 = {Sz_Cu_val[istate]},'
+                #     f'bonding = {bonding_val[istate]}, weight = {weight}\n\tvec = {(vecs[istate, 0], vecs[istate, 1], vecs[istate, 2], vecs[istate, 3])}\n')
+
                 if istate in coupled_idx:
                     idx = coupled_idx.index(istate)
                     output = (
                         f'\t({x1}, {y1}, {z1}, {orb1}, {s1}), ({x2}, {y2}, {z2}, {orb2}, {s2}), ({x3}, {y3}, {z3}, {orb3}, {s3})\n'
-                        f'\t({x4}, {y4}, {z4}, {orb4}, {s4})\n'
+                        f'\t({x4}, {y4}, {z4}, {orb4}, {s4}), ({x5}, {y5}, {z5}, {orb5}, {s5})\n'
                         f'\tj = {jm_list[idx][0]}, m = {jm_list[idx][1]}, bonding = {bonding_val[istate]}, weight = {weight}\n')
                 else:
-                    output = f'\t({x1}, {y1}, {z1}, {orb1}, {s1}), ({x2}, {y2}, {z2}, {orb2}, {s2}), ' +\
-                             f'({x3}, {y3}, {z3}, {orb3}, {s3})\n\t({x4}, {y4}, {z4}, {orb4}, {s4})\n' + \
-                             f'\tS_Ni1 = {S_Ni_val[istate]}, Sz_Ni1 = {Sz_Ni_val[istate]}, ' + \
-                             f'S_Ni2 = {S_Cu_val[istate]}, Sz_Ni2 = {Sz_Cu_val[istate]},' + \
-                             f'bonding = {bonding_val[istate]}, weight = {weight}\n'
+                    output = (
+                        f'\t({x1}, {y1}, {z1}, {orb1}, {s1}), ({x2}, {y2}, {z2}, {orb2}, {s2}), ({x3}, {y3}, {z3}, {orb3}, {s3})\n'
+                        f'\t({x4}, {y4}, {z4}, {orb4}, {s4}), ({x5}, {y5}, {z5}, {orb5}, {s5})\n'
+                        f'\tS_Ni1 = {S_Ni_val[istate]}, Sz_Ni1 = {Sz_Ni_val[istate]}, '
+                        f'S_Ni2 = {S_Cu_val[istate]}, Sz_Ni2 = {Sz_Cu_val[istate]},'
+                        f'bonding = {bonding_val[istate]}, weight = {weight}\n')
                 print(output)
                 if i1 == 0:
                     text_orb_max_weight.write(output + '\n')

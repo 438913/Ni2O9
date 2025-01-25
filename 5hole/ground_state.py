@@ -228,7 +228,7 @@ def state_classification(state_param):
     return dL_type, orb_type
 
 
-def get_ground_state(matrix, VS, S_Ni_val, Sz_Ni_val, S_Cu_val, Sz_Cu_val, bonding_val):
+def get_ground_state(matrix, VS, S_Ni_val, Sz_Ni_val, S_Cu_val, Sz_Cu_val, coupled_idx, jm_list, bonding_val):
     '''
     Obtain the ground state info, namely the lowest peak in Aw_dd's component
     in particular how much weight of various d8 channels: a1^2, b1^2, b2^2, e^2
@@ -246,7 +246,7 @@ def get_ground_state(matrix, VS, S_Ni_val, Sz_Ni_val, S_Cu_val, Sz_Cu_val, bondi
             number = i
             break
     print('Degeneracy of ground state is ', number)
-    weight_average = np.average(abs(vecs[:, 10:16]) ** 2, axis=1)
+    weight_average = np.average(abs(vecs[:, :number]) ** 2, axis=1)
     # weight_average = np.average(abs(vecs[:, 4: 6]) ** 2, axis=1)
     with open('./data/energy_spectrum', 'a') as f:
         f.write('lowest eigenvalue of H from np.linalg.eigsh = \n')
@@ -291,8 +291,15 @@ def get_ground_state(matrix, VS, S_Ni_val, Sz_Ni_val, S_Cu_val, Sz_Cu_val, bondi
                        (x4, y4, z4, orb4, s4), (x5, y5, z5, orb5, s5)]
         position = f'({x1}, {y1}, {z1}), ({x2}, {y2}, {z2}), ({x3}, {y3}, {z3}), ({x4}, {y4}, {z4}), ({x5}, {y5}, {z5})'
         dL_type, orb_type = state_classification(input_state)
+
+        if istate in coupled_idx:
+            orb_type = orb_type.split(',Sz')[0]
+            idx = coupled_idx.index(istate)
+            j, _ = jm_list[idx]
+            orb_type += f',j = {j}'
         # dL_type += f'({bonding})'
-        orb_type = position + orb_type
+
+        orb_type = position + ',' + orb_type
         dL_orb_type = f'{dL_type},{orb_type}'
         if dL_type in dL_weight:
             dL_weight[dL_type] += weight
@@ -367,12 +374,19 @@ def get_ground_state(matrix, VS, S_Ni_val, Sz_Ni_val, S_Cu_val, Sz_Cu_val, bondi
                 x3, y3, z3 = state['hole3_coord']
                 x4, y4, z4 = state['hole4_coord']
                 x5, y5, z5 = state['hole5_coord']
-                output = (
-                    f'\t({x1}, {y1}, {z1}, {orb1}, {s1}), ({x2}, {y2}, {z2}, {orb2}, {s2}), ({x3}, {y3}, {z3}, {orb3}, {s3})\n'
-                    f'\t({x4}, {y4}, {z4}, {orb4}, {s4}), ({x5}, {y5}, {z5}, {orb5}, {s5})\n'
-                    f'\tS_Ni1 = {S_Ni_val[istate]}, Sz_Ni1 = {Sz_Ni_val[istate]}, '
-                    f'S_Ni2 = {S_Cu_val[istate]}, Sz_Ni2 = {Sz_Cu_val[istate]},'
-                    f'bonding = {bonding_val[istate]}, weight = {weight}\n')
+                if istate in coupled_idx:
+                    idx = coupled_idx.index(istate)
+                    output = (
+                        f'\t({x1}, {y1}, {z1}, {orb1}, {s1}), ({x2}, {y2}, {z2}, {orb2}, {s2}), ({x3}, {y3}, {z3}, {orb3}, {s3})\n'
+                        f'\t({x4}, {y4}, {z4}, {orb4}, {s4}), ({x5}, {y5}, {z5}, {orb5}, {s5})\n'
+                        f'\tj = {jm_list[idx][0]}, m = {jm_list[idx][1]}, bonding = {bonding_val[istate]}, weight = {weight}\n')
+                else:
+                    output = (
+                        f'\t({x1}, {y1}, {z1}, {orb1}, {s1}), ({x2}, {y2}, {z2}, {orb2}, {s2}), ({x3}, {y3}, {z3}, {orb3}, {s3})\n'
+                        f'\t({x4}, {y4}, {z4}, {orb4}, {s4}), ({x5}, {y5}, {z5}, {orb5}, {s5})\n'
+                        f'\tS_Ni1 = {S_Ni_val[istate]}, Sz_Ni1 = {Sz_Ni_val[istate]}, '
+                        f'S_Ni2 = {S_Cu_val[istate]}, Sz_Ni2 = {Sz_Cu_val[istate]},'
+                        f'bonding = {bonding_val[istate]}, weight = {weight}\n')
                 print(output)
                 if i1 == 0:
                     text_orb_max_weight.write(output + '\n')

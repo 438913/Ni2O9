@@ -37,8 +37,8 @@ def find_singlet_triplet_partner_d_double(VS, d_part, index, h34_part):
         slabel = h34_part[0:5] + h34_part[5:10] + [d_part[0]] + d_part[6:10] + [d_part[5]] + d_part[1:5]
 
     tmp_state = vs.create_state(slabel)
-    partner_state, phase, _ = vs.make_state_canonical(tmp_state)
-    # phase = -1.0
+    partner_state, _, _ = vs.make_state_canonical(tmp_state)
+    phase = 1.0
 
     return VS.get_index(partner_state), phase
 
@@ -652,128 +652,64 @@ def create_coupled_representation_matrix(VS, S_Ni_val, Sz_Ni_val, S_Cu_val, Sz_C
     :param VS:all state
     :return:变换矩阵, sps.coc_matrix, 基矢以及对应的索引, jm_list, coupled_idx
     """
-    # 1. 生成耦合表象下的态在非耦合表象下的展开
-    phase_region = 'left'  # 选择相位区域，'left'表示左相区，'middle'表示中间相区，'right'表示右相区
+    # 1.  生成耦合表象下的态在非耦合表象下的展开式
+    # (1).逐个耦合
+    half = Rational(1, 2)
 
-    jm_list = []
-    expand_list = {}
-    # (1).两个空穴与两个空穴耦合
-    if phase_region == 'left':
-        j1_list = [0, 1]
-        j1m1_list = [(0, 0), (1, -1), (1, 0), (1, 1)]
-        expand1_list = [{(0, 0): 1}, {(1, -1): 1}, {(1, 0): 1}, {(1, 1): 1}]
+    j1_list = [half]
+    j1m1_list = [(half, -half), (half, half)]
+    expand1_list = [{(-half,): 1}, {(half,): 1}]
 
-        j2_list = j1_list
-        j2m2_list = j1m1_list
-        expand2_list = expand1_list
+    j2_list = j1_list
+    j2m2_list = j1m1_list
+    expand2_list = expand1_list
 
-        _, jm_list, expand_list = coupling_representation(j1_list, j2_list, j1m1_list, j2m2_list,
-                                                          expand1_list, expand2_list)
-    # (1).两个空穴先与一个空穴耦合，再与另一个空穴耦合
-    elif phase_region == 'middle':
-        j1_list = [0, 1]
-        j1m1_list = [(0, 0), (1, -1), (1, 0), (1, 1)]
-        expand1_list = [{(0, 0): 1}, {(1, -1): 1}, {(1, 0): 1}, {(1, 1): 1}]
-
-        half = Rational(1, 2)
-        j2_list = [half]
-        j2m2_list = [(half, -half), (half, half)]
-        expand2_list = [{(-half, ): 1}, {(half, ): 1}]
-        j_list, jm_list, expand_list = coupling_representation(j1_list, j2_list, j1m1_list, j2m2_list,
-                                                               expand1_list, expand2_list)
-        j1_list = j_list
-        j1m1_list = jm_list
-        expand1_list = expand_list
-        _, jm_list, expand_list = coupling_representation(j1_list, j2_list, j1m1_list, j2m2_list,
-                                                          expand1_list, expand2_list)
-    # (1) 一个空穴与一个空穴耦合
-    else:
-        half = Rational(1, 2)
-        j1_list = [half]
-        j1m1_list = [(half, -half), (half, half)]
-        expand1_list = [{(-half,): 1}, {(half,): 1}]
-
-        j2_list = j1_list
-        j2m2_list = j1m1_list
-        expand2_list = expand1_list
-
-        _, jm_list, expand_list = coupling_representation(j1_list, j2_list, j1m1_list, j2m2_list,
-                                                          expand1_list, expand2_list)
-
-    # (2).调整展开式顺序, 顺序以展开式左边(j, m)为基准，依次按照j, m的大小，升序排列
-    dim = len(jm_list)
-    sorted_idx = sorted(range(dim), key=lambda i: jm_list[i])
-    jm_list = [jm_list[i] for i in sorted_idx]
-    expand_list = [expand_list[i] for i in sorted_idx]
+    for _ in range(3):
+        j1_list, j1m1_list, expand1_list = coupling_representation(j1_list, j2_list, j1m1_list, j2m2_list,
+                                                                   expand1_list, expand2_list)
+    # (2). 调整展开式顺序，顺序以展开式左边(j, m)为基准，依次按照j, m的大小进行排序
+    dim = len(j1m1_list)
+    sorted_idx = sorted(range(dim), key=lambda i: j1m1_list[i])
+    jm_list = [j1m1_list[i] for i in sorted_idx]
+    expand_list = [expand1_list[i] for i in sorted_idx]
 
     # (3). 输出展开式
     for i, jm in enumerate(jm_list):
         j, m = jm
         print(f'|{j}, {m}> = {expand_list[i]}')
 
-    # 2. 生成从计非耦合表象到耦合表象的变换矩阵
-    # (1). 遍历整个态空间(dim维)，找到具有特定位置和特定轨道的态(需要变换的态)，并存储对应的索引
+    # 2. 生成从非耦合表象到耦合表象的变换矩阵
+    # (1). 遍历整个态空间(dim维)，找到具有特定位置和轨道的态，并存储对应的索引
     dim = VS.dim
     uncoupled_state = []
     uncoupled_idx = []
     data = []; row = []; col = []
 
-    # 选择特定位置和轨道的态
-    if phase_region == 'left':
-        choose_posit_orb = [(0, 0, 2, 'd3z2r2'), (0, 0, 2, 'dx2y2'), (0, 0, 0, 'd3z2r2'), (0, 0, 0, 'dx2y2')]
-        choose_posit_orb.sort()
-    elif phase_region == 'middle':
-        choose_posit_orb = [(0, 0, 2, 'd3z2r2'), (0, 0, 2, 'dx2y2'), (0, 0, 0, 'dx2y2'), (1, 0, 0, 'px')]
-        choose_posit_orb.sort()
-    else:
-        choose_posit_orb = [(0, 0, 2, 'dx2y2'), (0, 0, 2, 'dx2y2'), (0, 0, 0, 'dx2y2'), (1, 0, 0, 'px')]
-        choose_posit_orb.sort()
-
     for i in range(dim):
+        slabel = [['d3z2r2', 0, 0, 2], ['dx2y2', 0, 0, 2], ['d3z2r2', 0, 0, 0], ['dx2y2', 0, 0, 0]]
         start_state = VS.get_state(VS.lookup_tbl[i])
-        s1 = start_state['hole1_spin']
-        s2 = start_state['hole2_spin']
-        s3 = start_state['hole3_spin']
-        s4 = start_state['hole4_spin']
-
-        orb1 = start_state['hole1_orb']
-        orb2 = start_state['hole2_orb']
-        orb3 = start_state['hole3_orb']
-        orb4 = start_state['hole4_orb']
-
-        x1, y1, z1 = start_state['hole1_coord']
-        x2, y2, z2 = start_state['hole2_coord']
-        x3, y3, z3 = start_state['hole3_coord']
-        x4, y4, z4 = start_state['hole4_coord']
-
-        state = {(x1, y1, z1, orb1): s1, (x2, y2, z2, orb2): s2, (x3, y3, z3, orb3): s3, (x4, y4, z4, orb4): s4}
-        if phase_region == 'right':
-            posit_orb = [(x1, y1, z1, orb1), (x2, y2, z2, orb2), (x3, y3, z3, orb3), (x4, y4, z4, orb4)]
-            posit_orb.sort()
-        else:
-            posit_orb = sorted(state.keys())
-
-        if choose_posit_orb == posit_orb:
-            S_Ni, Sz_Ni = S_Ni_val[i], Sz_Ni_val[i]
-            S_Ni, Sz_Ni = Rational(S_Ni), Rational(Sz_Ni)
-
-            uncoupled_idx.append(i)
-            if phase_region == 'left':
-                S_Cu, Sz_Cu = S_Cu_val[i], Sz_Cu_val[i]
-                S_Cu, Sz_Cu = Rational(S_Cu), Rational(Sz_Cu)
-
-                uncoupled_state.append((S_Ni, Sz_Ni, S_Cu, Sz_Cu))
+        if_slabel = True
+        for num in range(1, 5):
+            x, y, z = start_state[f'hole{num}_coord']
+            orb = start_state[f'hole{num}_orb']
+            s = start_state[f'hole{num}_spin']
+            if [orb, x, y, z] in slabel:
+                idx = slabel.index([orb, x, y, z])
+                slabel[idx] = [s] + slabel[idx]     # 找到对应位置和轨道的自旋
             else:
-                half = Rational(1, 2)
-                Sz2 = half if state[(0, 0, 0, 'dx2y2')] == 'up' else -half
-                Sz3 = half if state[(1, 0, 0, 'px')] == 'up' else -half
-
-                if phase_region == 'middle':
-                    uncoupled_state.append((S_Ni, Sz_Ni, Sz2, Sz3))
-                else:
-                    uncoupled_state.append((Sz2, Sz3))
+                if_slabel = False
+                break
+        if if_slabel:
+            state = []   # state变量在这里不需要用到了
+            Sz_list = []
+            for hole in slabel:
+                state.extend(hole)  # 嵌套列表转为不嵌套的列表，即[[], ...] = [...]
+                s = half if hole[0] == 'up' else -half
+                Sz_list.append(s)
+            uncoupled_idx.append(i)
+            uncoupled_state.append(tuple(Sz_list))
         else:
-            data.append(1.0); row.append(i); col.append(i)  # 不需要变换，则将对角元素设为1.0
+            data.append(1.0); row.append(i); col.append(i)   # 不需要变换，则将对角线元素设为1.0
 
     # (2). 遍历1中得到的展开式，补齐变换矩阵，注意row_idx和col_idx
     for i1, expand in enumerate(expand_list):

@@ -38,6 +38,7 @@ def find_singlet_triplet_partner_d_double(VS, d_part, index, h34_part):
 
     tmp_state = vs.create_state(slabel)
     partner_state, phase, _ = vs.make_state_canonical(tmp_state)
+    assert (phase == 1)
     # phase = -1.0
 
     return VS.get_index(partner_state), phase
@@ -614,7 +615,7 @@ def coupling_representation(j1_list, j2_list, j1m1_list, j2m2_list, expand1_list
                 for m in np.arange(-j, j + 1):
                     expand = {}
 
-                    # 3. 计算耦合磁量子数m1和m2
+                    # 3. 计算非耦合磁量子数m1和m2
                     for m1 in np.arange(-j1, j1 + 1):
                         m2 = m - m1
                         if m2 < -j2 or m2 > j2:
@@ -709,7 +710,12 @@ def create_coupled_representation_matrix(VS, S_Ni_val, Sz_Ni_val, S_Cu_val, Sz_C
     # (3). 输出展开式
     for i, jm in enumerate(jm_list):
         j, m = jm
-        print(f'|{j}, {m}> = {expand_list[i]}')
+        expand = []
+        for factor, coef in expand_list[i].items():
+            j1, m1, j2, m2 = factor
+            expand.append(f'({coef})|{j1}, {m1}>|{j2}, {m2}>')
+        expand = ' + '.join(expand)
+        print(f'|{j}, {m}> = {expand}')
 
     # 2. 生成从计非耦合表象到耦合表象的变换矩阵
     # (1). 遍历整个态空间(dim维)，找到具有特定位置和特定轨道的态(需要变换的态)，并存储对应的索引
