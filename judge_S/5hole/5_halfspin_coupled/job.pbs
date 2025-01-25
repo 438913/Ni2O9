@@ -1,0 +1,18 @@
+#!/bin/bash
+#PBS -q batch
+#PBS -N 5hole_E_vs_A_pressure
+#PBS -l nodes=cu12:ppn=1
+#PBS -l walltime=24:00:00   \\申请24小时的工作，不满足将无法继续进行计算
+#PBS -e err.txt
+#PBS -o out.txt
+
+cd $PBS_O_WORKDIR
+module load anaconda/3
+
+date
+
+python compute_Aw_5hole.py > out
+
+date
+
+

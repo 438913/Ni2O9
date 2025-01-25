@@ -266,7 +266,7 @@ def get_ground_state(matrix, VS, S_Ni_val, Sz_Ni_val, S_Cu_val, Sz_Cu_val,bondin
                 print (' state ', istate, ' ',orb1,s1,x1,y1,z1,' ',orb2,s2,x2,y2,z2,' ',orb3,s3,x3,y3,z3,' ',orb4,s4,x4,y4,z4,\
                    '\n S_Ni=', S_Ni_12, ',  Sz_Ni=', Sz_Ni_12, \
                    ',  S_Cu=', S_Cu_12, ',  Sz_Cu=', Sz_Cu_12,  ',  bonding=', bonding,\
-                   ", weight = ", weight,'\n')   
+                   ", weight = ", weight,'\n', ", vector=", vecs[istate, k])
 
 
             if bonding==0:
