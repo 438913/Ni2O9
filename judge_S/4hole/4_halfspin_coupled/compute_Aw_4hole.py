@@ -112,8 +112,8 @@ def compute_Aw_main(ANi,ACu,epCu,epNi,epbilayer,tpd,tpp,tapzd,tapzp,tz_a1a1,tz_b
             
 #             H = U_other_d.dot(H.dot(U_other))
         # 两个空穴(都在d轨道上)的耦合表象转化为非耦合表象
-        H = U_Cu @ H @ U_Cu_d
         H = U_Ni @ H @ U_Ni_d
+        H = U_Cu @ H @ U_Cu_d
         H_coupled = U_coupled_d @ H @ U_coupled
         
         H_bond = U_bond_d.dot(H.dot(U_bond))  
@@ -242,31 +242,31 @@ if __name__ == '__main__':
 
             if Norb==8 or Norb==5:
                     for tpd in pam.tpds:
-                        tapzd = 1.05*tpd
-                        for tapzp in pam.tapzps:
-                            for epCu in pam.epCus:
-                                for epNi in pam.epNis:
-                                    for epbilayer in pam.epbilayers:
-            #                            util.get_atomic_d8_energy(ANi,B,C)
-                                        for tpp in pam.tpps:
-                                            for Upp in pam.Upps:
-                                                for Uss in pam.Usss:
-                                                    print ('===================================================')
-                                                    print ('ANi=',ANi, 'ACu=',ACu,'epCu=', epCu, 'epNi=',epNi, 'epbilayer=',epbilayer,\
-                                                           ' tpd=',tpd,' tpp=',tpp,' Upp=',Upp ,'tz_a1a1=',tz_a1a1,'tz_b1b1=',tz_b1b1,'tapzd=',tapzd,'tapzp=',tapzp)
-                                                    file_path_list = ('./data/dL_weight', './data/energy_spectrum', './data/orb_max_weight', './data/jm')
-                                                    for file_path in file_path_list:
-                                                        with open(file_path, 'a') as f:
-                                                            f.write(f'A = {ANi}, B = {B}, C = {C}, ed = {edNi}\n'
-                                                                    f'ep = {epCu}, eo = {epbilayer}, tpp = {tpp}, tpo = {tapzp}, '
-                                                                    f'tz_a1a1 = {tz_a1a1}, tz_b1b1 = {tz_b1b1}, Upp = {Upp}, Uss = {Uss}\n'
-                                                                    f'tpd = {tpd}, tdo = {tapzd}\n')
+                        for tapzd in pam.tapzds:
+                            for tapzp in pam.tapzps:
+                                for epCu in pam.epCus:
+                                    for epNi in pam.epNis:
+                                        for epbilayer in pam.epbilayers:
+                #                            util.get_atomic_d8_energy(ANi,B,C)
+                                            for tpp in pam.tpps:
+                                                for Upp in pam.Upps:
+                                                    for Uss in pam.Usss:
+                                                        print ('===================================================')
+                                                        print ('ANi=',ANi, 'ACu=',ACu,'epCu=', epCu, 'epNi=',epNi, 'epbilayer=',epbilayer,\
+                                                               ' tpd=',tpd,' tpp=',tpp,' Upp=',Upp ,'tz_a1a1=',tz_a1a1,'tz_b1b1=',tz_b1b1,'tapzd=',tapzd,'tapzp=',tapzp)
+                                                        file_path_list = ('./data/dL_weight', './data/energy_spectrum', './data/orb_max_weight', './data/jm')
+                                                        for file_path in file_path_list:
+                                                            with open(file_path, 'a') as f:
+                                                                f.write(f'A = {ANi}, B = {B}, C = {C}, ed = {edNi}\n'
+                                                                        f'ep = {epCu}, eo = {epbilayer}, tpp = {tpp}, tpo = {tapzp}, '
+                                                                        f'tz_a1a1 = {tz_a1a1}, tz_b1b1 = {tz_b1b1}, Upp = {Upp}, Uss = {Uss}\n'
+                                                                        f'tpd = {tpd}, tdo = {tapzd}\n')
 
-                                                    compute_Aw_main(ANi,ACu,epCu,epNi,epbilayer,tpd,tpp,tapzd,tapzp,tz_a1a1,tz_b1b1,0,0,0,0,Upp,Uss,\
-                                                                    d_Ni_double,d_Cu_double,p_double,apz_double,double_Ni_part,hole34_Ni_part,\
-                                                                    double_Cu_part,hole34_Cu_part, idx_Ni,idx_Cu, \
-                                                                    U_Ni, S_Ni_val, Sz_Ni_val, AorB_Ni_sym ,U_Cu, \
-                                                                    S_Cu_val, Sz_Cu_val, AorB_Cu_sym)
+                                                        compute_Aw_main(ANi,ACu,epCu,epNi,epbilayer,tpd,tpp,tapzd,tapzp,tz_a1a1,tz_b1b1,0,0,0,0,Upp,Uss,\
+                                                                        d_Ni_double,d_Cu_double,p_double,apz_double,double_Ni_part,hole34_Ni_part,\
+                                                                        double_Cu_part,hole34_Cu_part, idx_Ni,idx_Cu, \
+                                                                        U_Ni, S_Ni_val, Sz_Ni_val, AorB_Ni_sym ,U_Cu, \
+                                                                        S_Cu_val, Sz_Cu_val, AorB_Cu_sym)
 
 
                         

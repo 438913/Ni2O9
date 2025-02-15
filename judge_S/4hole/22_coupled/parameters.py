@@ -40,21 +40,22 @@ elif pressure == 16:
     epNis = np.arange(2.75, 2.751, 1.0)
     epbilayers = np.arange(3.14, 3.141, 1.0)
 elif pressure == 29.5:
-    # edCu = {'d3z2r2': 0.095,
-    #         'dx2y2': 0,
-    #         'dxy': 1.06,
-    #         'dxz': 0.94,
-    #         'dyz': 0.94}
-    # epNis = np.arange(2.9, 2.91, 1.0)
-    # epbilayers = np.arange(3.24, 3.241, 1.0)
-
-    edCu = {'d3z2r2': 0.0,
-            'dx2y2': 0.0,
+    edCu = {'d3z2r2': 0.095,
+            'dx2y2': 0.,
             'dxy': 1.06,
             'dxz': 0.94,
             'dyz': 0.94}
-    epNis = np.arange(0, 0.1, 1.0)
-    epbilayers = np.arange(0, 0.1, 1.0)
+    epNis = np.arange(2.9, 2.91, 1.0)
+    # epNis = np.arange(100, 100.1, 1.0)
+    epbilayers = np.arange(3.24, 3.241, 1.0)
+
+    # edCu = {'d3z2r2': 0.0,
+    #         'dx2y2': 0.0,
+    #         'dxy': 1.06,
+    #         'dxz': 0.94,
+    #         'dyz': 0.94}
+    # epNis = np.arange(0, 0.1, 1.0)
+    # epbilayers = np.arange(10, 10.1, 1.0)
 
 # edNi = {'d3z2r2': 0.37,
 #         'dx2y2': 0.15,
@@ -109,20 +110,20 @@ if Norb == 8 or Norb == 5:
         tapzds = np.linspace(1.61, 1.61, num=1, endpoint=True)
         tapzps = np.linspace(0.484, 0.484, num=1, endpoint=True)
     if pressure == 29.5:
-        # tpds = np.linspace(1.58, 1.58, num=1, endpoint=True)
-        tpds = np.linspace(0.0, 0.0, num=1, endpoint=True)
+        tpds = np.linspace(1.58, 1.58, num=1, endpoint=True)
+        # tpds = np.linspace(0, 10, num=1, endpoint=True)
 
-        # tpps = [0.562]
-        tpps = [0.0]
+        tpps = [0.562]
+        # tpps = [0]
         tapzds = np.linspace(1.66, 1.66, num=1, endpoint=True)
         # tapzds = np.linspace(0.0, 15, num=1, endpoint=True)
 
-        # tapzps = np.linspace(0.487, 0.487, num=1, endpoint=True)
-        tapzps = np.linspace(0.0, 0.0, num=1, endpoint=True)
-    # tz_a1a1 = 0.028
-    # tz_b1b1 = 0.047
-    tz_a1a1 = 0.0
-    tz_b1b1 = 0.0
+        tapzps = np.linspace(0.487, 0.487, num=1, endpoint=True)
+        # tapzps = np.linspace(0, 0.487, num=1, endpoint=True)
+    tz_a1a1 = 0.028
+    tz_b1b1 = 0.047
+    # tz_a1a1 = 0.0
+    # tz_b1b1 = 0.0
 
 elif Norb == 10 or Norb == 12:
     # pdp = sqrt(3)/4*pds so that tpd(b2)=tpd(b1)/2: see Eskes's thesis and 1990 paper
@@ -161,6 +162,9 @@ Lanczos_maxiter = 600
 reduce_VS = 0
 all_A_d8910 = 'd9'
 if_H0_rotate_byU = 1
+
+if_coupled = 1
+
 basis_change_type = 'd_double'  # 'all_states' or 'd_double'
 if_print_VS_after_basis_change = 0
 

@@ -2,7 +2,6 @@
 Contains a class for the variational space for the NiO2 layer
 and functions used to represent states as dictionaries.
 Distance (L1-norm) between any two particles(holes) cannot > cutoff Mc
-
 '''
 import parameters as pam
 import lattice as lat

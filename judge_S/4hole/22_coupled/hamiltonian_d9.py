@@ -968,6 +968,7 @@ def create_tapzd_nn_matrix(VS, tapzd_nn_hop_dir, tapzd_orbs, tapzd_nn_hop_fac):
     
     dim = VS.dim
     tapzd_keys = tapzd_nn_hop_fac.keys()
+    ph_list = []
     data = []
     row = []
     col = []
@@ -1017,6 +1018,8 @@ def create_tapzd_nn_matrix(VS, tapzd_nn_hop_dir, tapzd_orbs, tapzd_nn_hop_fac):
 
                     o12 = tuple([orb1, dir_, o1])
                     if o12 in tapzd_keys:
+                        if VS.get_index(new_state) != None:
+                            ph_list.append(ph)
                         set_matrix_element(row,col,data,new_state,i,VS,tapzd_nn_hop_fac[o12]*ph)
 
         # hole 2 hops; some d-orbitals might have no tapzd
@@ -1045,6 +1048,8 @@ def create_tapzd_nn_matrix(VS, tapzd_nn_hop_dir, tapzd_orbs, tapzd_nn_hop_fac):
 
                     o12 = tuple([orb2, dir_, o2])
                     if o12 in tapzd_keys:
+                        if VS.get_index(new_state) != None:
+                            ph_list.append(ph)
                         set_matrix_element(row,col,data,new_state,i,VS,tapzd_nn_hop_fac[o12]*ph)
 
         if orb3 in tapzd_orbs:
@@ -1072,6 +1077,8 @@ def create_tapzd_nn_matrix(VS, tapzd_nn_hop_dir, tapzd_orbs, tapzd_nn_hop_fac):
 
                     o12 = tuple([orb3, dir_, o3])
                     if o12 in tapzd_keys:
+                        if VS.get_index(new_state) != None:
+                            ph_list.append(ph)
                         set_matrix_element(row,col,data,new_state,i,VS,tapzd_nn_hop_fac[o12]*ph)
                         
         if orb4 in tapzd_orbs:
@@ -1099,8 +1106,58 @@ def create_tapzd_nn_matrix(VS, tapzd_nn_hop_dir, tapzd_orbs, tapzd_nn_hop_fac):
 
                     o12 = tuple([orb4, dir_, o4])
                     if o12 in tapzd_keys:
+                        if VS.get_index(new_state) != None:
+                            ph_list.append(ph)
                         set_matrix_element(row,col,data,new_state,i,VS,tapzd_nn_hop_fac[o12]*ph)
-                           
+
+    row_print = []
+    col_print = []
+    ph_print = []
+    data_print = []
+
+    state_list = []
+    for i, state_idx in enumerate(row):
+        start_state = VS.get_state(VS.lookup_tbl[state_idx])
+        s1 = start_state['hole1_spin']
+        s2 = start_state['hole2_spin']
+        s3 = start_state['hole3_spin']
+        s4 = start_state['hole4_spin']
+        orb1 = start_state['hole1_orb']
+        orb2 = start_state['hole2_orb']
+        orb3 = start_state['hole3_orb']
+        orb4 = start_state['hole4_orb']
+        x1, y1, z1 = start_state['hole1_coord']
+        x2, y2, z2 = start_state['hole2_coord']
+        x3, y3, z3 = start_state['hole3_coord']
+        x4, y4, z4 = start_state['hole4_coord']
+        if orb1 not in ['px', 'py'] and orb2 not in ['px', 'py'] and orb3 not in ['px', 'py'] and orb4 not in ['px', 'py']:
+            state = ((z1, orb1, s1), (z2, orb2, s2), (z3, orb3, s3), (z4, orb4, s4))
+            state = sorted(state)
+            state_list.append(state)
+            row_print.append(row[i])
+            col_print.append(col[i])
+            ph_print.append(ph_list[i])
+            data_print.append(data[i])
+    sorted_idx = sorted(range(len(state_list)), key=lambda i: state_list[i])
+    file = open('./data/Tdo_information', 'w')
+    for idx in sorted_idx:
+        for state_idx in [row_print[idx], col_print[idx]]:
+            start_state = VS.get_state(VS.lookup_tbl[state_idx])
+            s1 = start_state['hole1_spin']
+            s2 = start_state['hole2_spin']
+            s3 = start_state['hole3_spin']
+            s4 = start_state['hole4_spin']
+            orb1 = start_state['hole1_orb']
+            orb2 = start_state['hole2_orb']
+            orb3 = start_state['hole3_orb']
+            orb4 = start_state['hole4_orb']
+            x1, y1, z1 = start_state['hole1_coord']
+            x2, y2, z2 = start_state['hole2_coord']
+            x3, y3, z3 = start_state['hole3_coord']
+            x4, y4, z4 = start_state['hole4_coord']
+            file.write(f'({z1}, {orb1}, {s1}), ({z2}, {orb2}, {s2}), ({z3}, {orb3}, {s3}), ({z4}, {orb4}, {s4})\n\n')
+        file.write(f'ph = {ph_print[idx]}, value = {data_print[idx]}\n\n\n')
+    file.close()
 
     row = np.array(row)
     col = np.array(col)

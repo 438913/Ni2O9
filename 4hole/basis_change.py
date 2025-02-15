@@ -38,7 +38,7 @@ def find_singlet_triplet_partner_d_double(VS, d_part, index, h34_part):
 
     tmp_state = vs.create_state(slabel)
     partner_state, phase, _ = vs.make_state_canonical(tmp_state)
-    # phase = -1.0
+    phase = -1.0
 
     return VS.get_index(partner_state), phase
 

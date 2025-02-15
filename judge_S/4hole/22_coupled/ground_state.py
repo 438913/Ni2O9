@@ -212,158 +212,161 @@ def get_ground_state(matrix, VS, S_Ni_val, Sz_Ni_val, S_Cu_val, Sz_Cu_val, coupl
     vals.sort()
     print('lowest eigenvalue of H from np.linalg.eigsh = ')
     print(vals)
-    number = 1
-    for i in range(1, pam.Neval):
-        if abs(vals[i] - vals[0]) > 1e-4:
-            number = i
-            break
-    print('Degeneracy of ground state is ', number)
-    weight_average = np.average(abs(vecs[:, :number]) ** 2, axis=1)
     with open('data/energy_spectrum', 'a') as f:
         f.write('lowest eigenvalue of H from np.linalg.eigsh = \n')
         f.write(str(vals) + '\n\n')
     with open('data/vals', 'a') as f:
         f.write(f'{vals[0]}\n')
-    ilead = np.argsort(-weight_average)
-    total = 0
-    # dL_weight用来记录, 例如d8_d9L总的weight,
-    # dL_orb用来记录, 例如d8_d9L具体的d轨道和自旋信息
-    # dL_orb_weight用来记录, 例如d8_d9L具体的d轨道自旋所对应总的weight
-    # dL_orb_istate用来记录, 例如d8_d9L具体的d轨道自旋对应态的索引
-    # weight_average是各个态的weight
-    dL_weight = {}
-    dL_orb = {}
-    dL_orb_weight = {}
-    dL_orb_istate = {}
 
-    for istate in ilead:
-        # state is original state but its orbital info remains after basis change
-        weight = weight_average[istate]
-        total += weight
-        state = VS.get_state(VS.lookup_tbl[istate])
-        s1 = state['hole1_spin']
-        s2 = state['hole2_spin']
-        s3 = state['hole3_spin']
-        s4 = state['hole4_spin']
-        orb1 = state['hole1_orb']
-        orb2 = state['hole2_orb']
-        orb3 = state['hole3_orb']
-        orb4 = state['hole4_orb']
-        x1, y1, z1 = state['hole1_coord']
-        x2, y2, z2 = state['hole2_coord']
-        x3, y3, z3 = state['hole3_coord']
-        x4, y4, z4 = state['hole4_coord']
-        bonding = bonding_val[istate]
+    # 计算每个不同的本征值第一次出现的索引，并存储在degen_idx中
+    # 对应的简并度即为degen_idx[i+1] - degen_idx[i]
+    val_num = 5
+    degen_idx = [0]
+    for _ in range(val_num):
+        for idx in range(degen_idx[-1]+1, pam.Neval):
+            if abs(vals[idx] - vals[degen_idx[-1]]) > 1e-4:
+                degen_idx.append(idx)
+                break
 
-        input_state = [(x1, y1, z1, orb1, s1), (x2, y2, z2, orb2, s2), (x3, y3, z3, orb3, s3),
-                       (x4, y4, z4, orb4, s4)]
-        position = f'({x1}, {y1}, {z1}), ({x2}, {y2}, {z2}), ({x3}, {y3}, {z3}), ({x4}, {y4}, {z4})'
-        dL_type, orb_type = state_classification(input_state)
-
-        # if istate in coupled_idx:
-        #     orb_type = orb_type.split(',Sz')[0]
-        #     idx = coupled_idx.index(istate)
-        #     j, _ = jm_list[idx]
-        #     orb_type += f',j = {j}'
-
-        # dL_type += f'({bonding})'
-        orb_type = position + ',' + orb_type
-        dL_orb_type = f'{dL_type},{orb_type}'
-        if dL_type in dL_weight:
-            dL_weight[dL_type] += weight
-        else:
-            dL_weight[dL_type] = weight
-        if dL_type in dL_orb:
-            if orb_type not in dL_orb[dL_type]:
-                dL_orb[dL_type] += [orb_type]
-        else:
-            dL_orb[dL_type] = [orb_type]
-        if dL_orb_type in dL_orb_weight:
-            dL_orb_weight[dL_orb_type] += weight
-            dL_orb_istate[dL_orb_type] += [istate]
-        else:
-            dL_orb_weight[dL_orb_type] = weight
-            dL_orb_istate[dL_orb_type] = [istate]
     text_dL_weight = open('data/dL_weight', 'a')
     text_orb_max_weight = open('data/orb_max_weight', 'a')
-    sorted_dL = sorted(dL_weight, key=dL_weight.get, reverse=True)
-    for i1, dL_type in enumerate(sorted_dL):
-        weight = dL_weight[dL_type]
-        if weight < 0.002:
-            continue
-        if i1 == 0:
-            text_orb_max_weight.write(f'{dL_type}: {weight}\n\n')
-            print('\n', end='')
-        else:
-            print('\n\n', end='')
-        print(f'{dL_type}: {weight}\n')
-        text_dL_weight.write(f'\t{dL_type}: {weight}\n')
-        dL_orb_type_list = [f'{dL_type},{orb_type}' for orb_type in dL_orb[dL_type]]
-        dL_orb_type_list = sorted(dL_orb_type_list, key=lambda x: dL_orb_weight[x], reverse=True)
-        for i2, dL_orb_type in enumerate(dL_orb_type_list):
-            weight = dL_orb_weight[dL_orb_type]
-            if weight < 1e-3:
+    for i in range(val_num):
+        print(f'Degeneracy of {i}th state is {degen_idx[i + 1]-degen_idx[i]}')
+        print('val = ', vals[degen_idx[i]])
+        text_dL_weight.write(f'\nDegeneracy of {i}th state is {degen_idx[i + 1] - degen_idx[i]}\n')
+        text_orb_max_weight.write(f'\nDegeneracy of {i}th state is {degen_idx[i + 1] - degen_idx[i]}\n')
+
+        weight_average = np.average(abs(vecs[:, degen_idx[i]:degen_idx[i+1]]) ** 2, axis=1)
+        ilead = np.argsort(-weight_average)
+
+        total = 0
+        # dL_weight用来记录, 例如d8_d9L总的weight,
+        # dL_orb用来记录, 例如d8_d9L具体的d轨道和自旋信息
+        # dL_orb_weight用来记录, 例如d8_d9L具体的d轨道自旋所对应总的weight
+        # dL_orb_istate用来记录, 例如d8_d9L具体的d轨道自旋对应态的索引
+        # weight_average是各个态的weight
+        dL_weight = {}
+        dL_orb = {}
+        dL_orb_weight = {}
+        dL_orb_istate = {}
+        for istate in ilead:
+            # state is original state but its orbital info remains after basis change
+            weight = weight_average[istate]
+            total += weight
+            state = VS.get_state(VS.lookup_tbl[istate])
+            s1 = state['hole1_spin']
+            s2 = state['hole2_spin']
+            s3 = state['hole3_spin']
+            s4 = state['hole4_spin']
+            orb1 = state['hole1_orb']
+            orb2 = state['hole2_orb']
+            orb3 = state['hole3_orb']
+            orb4 = state['hole4_orb']
+            x1, y1, z1 = state['hole1_coord']
+            x2, y2, z2 = state['hole2_coord']
+            x3, y3, z3 = state['hole3_coord']
+            x4, y4, z4 = state['hole4_coord']
+            bonding = bonding_val[istate]
+
+            input_state = [(x1, y1, z1, orb1, s1), (x2, y2, z2, orb2, s2), (x3, y3, z3, orb3, s3),
+                           (x4, y4, z4, orb4, s4)]
+            position = f'({x1}, {y1}, {z1}), ({x2}, {y2}, {z2}), ({x3}, {y3}, {z3}), ({x4}, {y4}, {z4})'
+            dL_type, orb_type = state_classification(input_state)
+
+            if pam.if_coupled:
+                if istate in coupled_idx:
+                    orb_type = orb_type.split(',Sz')[0]
+                    idx = coupled_idx.index(istate)
+                    j, _ = jm_list[idx]
+                    orb_type += f',j = {j}'
+
+            # dL_type += f'({bonding})'
+            orb_type = position + ',' + orb_type
+            dL_orb_type = f'{dL_type},{orb_type}'
+            if dL_type in dL_weight:
+                dL_weight[dL_type] += weight
+            else:
+                dL_weight[dL_type] = weight
+            if dL_type in dL_orb:
+                if orb_type not in dL_orb[dL_type]:
+                    dL_orb[dL_type] += [orb_type]
+            else:
+                dL_orb[dL_type] = [orb_type]
+            if dL_orb_type in dL_orb_weight:
+                dL_orb_weight[dL_orb_type] += weight
+                dL_orb_istate[dL_orb_type] += [istate]
+            else:
+                dL_orb_weight[dL_orb_type] = weight
+                dL_orb_istate[dL_orb_type] = [istate]
+
+        sorted_dL = sorted(dL_weight, key=dL_weight.get, reverse=True)
+        for i1, dL_type in enumerate(sorted_dL):
+            weight = dL_weight[dL_type]
+            if weight < 0.002:
                 continue
-            orb_type = dL_orb_type.split(',')
-            orb_type = ",".join(orb_type[1:])
-            if i2 != 0:
-                print('\n', end='')
-            print(f'\t{orb_type}: {weight}\n')
             if i1 == 0:
-                text_orb_max_weight.write(f'\t{orb_type}: {weight}\n\n')
-            # last_weight = 0
-            # weight_num = 1
-            for istate in dL_orb_istate[dL_orb_type]:
-                weight = weight_average[istate]
-                # if weight < 1e-4:
-                #     continue
-                # if abs(weight - last_weight) < 1e-6:
-                #     weight_num += 1
-                #     continue
+                text_orb_max_weight.write(f'{dL_type}: {weight}\n\n')
+                print('\n', end='')
+            else:
+                print('\n\n', end='')
+            print(f'{dL_type}: {weight}\n')
+            text_dL_weight.write(f'\t{dL_type}: {weight}\n')
+            dL_orb_type_list = [f'{dL_type},{orb_type}' for orb_type in dL_orb[dL_type]]
+            dL_orb_type_list = sorted(dL_orb_type_list, key=lambda x: dL_orb_weight[x], reverse=True)
+            for i2, dL_orb_type in enumerate(dL_orb_type_list):
+                weight = dL_orb_weight[dL_orb_type]
+                if weight < 1e-3:
+                    continue
+                orb_type = dL_orb_type.split(',')
+                orb_type = ",".join(orb_type[1:])
+                if i2 != 0:
+                    print('\n', end='')
+                print(f'\t{orb_type}: {weight}\n')
+                if i1 == 0:
+                    text_orb_max_weight.write(f'\t{orb_type}: {weight}\n\n')
+                # last_weight = 0
+                # weight_num = 1
+                for istate in dL_orb_istate[dL_orb_type]:
+                    weight = weight_average[istate]
+                    state = VS.get_state(VS.lookup_tbl[istate])
+                    s1 = state['hole1_spin']
+                    s2 = state['hole2_spin']
+                    s3 = state['hole3_spin']
+                    s4 = state['hole4_spin']
+                    orb1 = state['hole1_orb']
+                    orb2 = state['hole2_orb']
+                    orb3 = state['hole3_orb']
+                    orb4 = state['hole4_orb']
+                    x1, y1, z1 = state['hole1_coord']
+                    x2, y2, z2 = state['hole2_coord']
+                    x3, y3, z3 = state['hole3_coord']
+                    x4, y4, z4 = state['hole4_coord']
+                    output = f'\t({x1}, {y1}, {z1}, {orb1}, {s1}), ({x2}, {y2}, {z2}, {orb2}, {s2}), ' +\
+                             f'({x3}, {y3}, {z3}, {orb3}, {s3})\n\t({x4}, {y4}, {z4}, {orb4}, {s4})\n' + \
+                             f'\tS_Ni2 = {S_Ni_val[istate]}, Sz_Ni2 = {Sz_Ni_val[istate]}, ' + \
+                             f'S_Ni0 = {S_Cu_val[istate]}, Sz_Ni0 = {Sz_Cu_val[istate]}\n' + \
+                             f'\tvector = {vecs[istate, degen_idx[i]:degen_idx[i+1]]}, weight = {weight}\n\t'
+                    if pam.if_coupled:
+                        if istate in coupled_idx:
+                            idx = coupled_idx.index(istate)
+                            output = (
+                                f'\t({x1}, {y1}, {z1}, {orb1}, {s1}), ({x2}, {y2}, {z2}, {orb2}, {s2}), ({x3}, {y3}, {z3}, {orb3}, {s3})\n'
+                                f'\t({x4}, {y4}, {z4}, {orb4}, {s4})\n'
+                                f'\tj = {jm_list[idx][0]}, m = {jm_list[idx][1]}, bonding = {bonding_val[istate]}, weight = {weight}\n')
+                        else:
+                            output = f'\t({x1}, {y1}, {z1}, {orb1}, {s1}), ({x2}, {y2}, {z2}, {orb2}, {s2}), ' +\
+                                     f'({x3}, {y3}, {z3}, {orb3}, {s3})\n\t({x4}, {y4}, {z4}, {orb4}, {s4})\n' + \
+                                     f'\tS_Ni1 = {S_Ni_val[istate]}, Sz_Ni1 = {Sz_Ni_val[istate]}, ' + \
+                                     f'S_Ni2 = {S_Cu_val[istate]}, Sz_Ni2 = {Sz_Cu_val[istate]},' + \
+                                     f'bonding = {bonding_val[istate]}, weight = {weight}\n'
+                    print(output)
+                    if i1 == 0:
+                        text_orb_max_weight.write(output + '\n')
+                # 处理最后一次循环
                 # if weight_num > 1:
                 #     print(f'\tthe same weight number = {weight_num}\n')
                 #     if i1 == 0:
-                #         text_orb_max_weight.write(f'\tthe same weight number = {weight_num}\n')
-                # last_weight = weight
-                # weight_num = 1
-                state = VS.get_state(VS.lookup_tbl[istate])
-                s1 = state['hole1_spin']
-                s2 = state['hole2_spin']
-                s3 = state['hole3_spin']
-                s4 = state['hole4_spin']
-                orb1 = state['hole1_orb']
-                orb2 = state['hole2_orb']
-                orb3 = state['hole3_orb']
-                orb4 = state['hole4_orb']
-                x1, y1, z1 = state['hole1_coord']
-                x2, y2, z2 = state['hole2_coord']
-                x3, y3, z3 = state['hole3_coord']
-                x4, y4, z4 = state['hole4_coord']
-                output = f'\t({x1}, {y1}, {z1}, {orb1}, {s1}), ({x2}, {y2}, {z2}, {orb2}, {s2}), ' +\
-                         f'({x3}, {y3}, {z3}, {orb3}, {s3})\n\t({x4}, {y4}, {z4}, {orb4}, {s4})\n' + \
-                         f'\tS_Ni2 = {S_Ni_val[istate]}, Sz_Ni2 = {Sz_Ni_val[istate]}, ' + \
-                         f'S_Ni0 = {S_Cu_val[istate]}, Sz_Ni0 = {Sz_Cu_val[istate]}\n' + \
-                         f'\tvector = {vecs[istate, :number]}, weight = {weight}\n\t'
-                # if istate in coupled_idx:
-                #     idx = coupled_idx.index(istate)
-                #     output = (
-                #         f'\t({x1}, {y1}, {z1}, {orb1}, {s1}), ({x2}, {y2}, {z2}, {orb2}, {s2}), ({x3}, {y3}, {z3}, {orb3}, {s3})\n'
-                #         f'\t({x4}, {y4}, {z4}, {orb4}, {s4})\n'
-                #         f'\tj = {jm_list[idx][0]}, m = {jm_list[idx][1]}, bonding = {bonding_val[istate]}, weight = {weight}\n')
-                # else:
-                #     output = f'\t({x1}, {y1}, {z1}, {orb1}, {s1}), ({x2}, {y2}, {z2}, {orb2}, {s2}), ' +\
-                #              f'({x3}, {y3}, {z3}, {orb3}, {s3})\n\t({x4}, {y4}, {z4}, {orb4}, {s4})\n' + \
-                #              f'\tS_Ni1 = {S_Ni_val[istate]}, Sz_Ni1 = {Sz_Ni_val[istate]}, ' + \
-                #              f'S_Ni2 = {S_Cu_val[istate]}, Sz_Ni2 = {Sz_Cu_val[istate]},' + \
-                #              f'bonding = {bonding_val[istate]}, weight = {weight}\n'
-                print(output)
-                if i1 == 0:
-                    text_orb_max_weight.write(output + '\n')
-            # 处理最后一次循环
-            # if weight_num > 1:
-            #     print(f'\tthe same weight number = {weight_num}\n')
-            #     if i1 == 0:
-            #         text_orb_max_weight.write(f'\tthe same weight number = {weight_num}\n\n')
+                #         text_orb_max_weight.write(f'\tthe same weight number = {weight_num}\n\n')
     text_dL_weight.write('\n')
     text_dL_weight.close()
     text_orb_max_weight.write('\n\n')

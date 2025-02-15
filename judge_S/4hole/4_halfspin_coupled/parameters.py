@@ -46,7 +46,9 @@ elif pressure == 29.5:
             'dxz': 0.94,
             'dyz': 0.94}
     epNis = np.arange(2.9, 2.91, 1.0)
+    # epNis = np.arange(100, 100.1, 1.0)
     epbilayers = np.arange(3.24, 3.241, 1.0)
+    # epbilayers = np.arange(10, 10.1, 1.0)
 
 edNi = edCu
 epCus = epNis
@@ -94,16 +96,18 @@ if Norb == 8 or Norb == 5:
         tapzds = np.linspace(1.61, 1.61, num=1, endpoint=True)
         tapzps = np.linspace(0.484, 0.484, num=1, endpoint=True)
     if pressure == 29.5:
-        # tpds = np.linspace(1.58, 1.58, num=1, endpoint=True)
         tpds = np.linspace(1.58, 1.58, num=1, endpoint=True)
+        # tpds = np.linspace(0, 1.58, num=1, endpoint=True)
 
         tpps = [0.562]
+        # tpps = [0]
 
         tapzds = np.linspace(1.66, 1.66, num=1, endpoint=True)
-        # tapzds = np.linspace(3.6, 3.6, num=1, endpoint=True)
+        # tapzds = np.linspace(0, 3.6, num=1, endpoint=True)
 
         tapzps = np.linspace(0.487, 0.487, num=1, endpoint=True)
     tz_a1a1 = 0.028
+    # tz_a1a1 = 1.66
     tz_b1b1 = 0.047
 
 elif Norb == 10 or Norb == 12:

@@ -23,22 +23,36 @@ def find_singlet_triplet_partner_d_double(VS, d_part, index, h34_part):
     index: index of the singlet/triplet partner state in the VS
     phase: phase factor with which the partner state needs to be multiplied.
     '''
+    # if index == 14:
+    #     slabel = h34_part[0:5] + [d_part[0]] + d_part[6:10] + [d_part[5]] + d_part[1:5] + h34_part[5:10]
+    # elif index == 24:
+    #     slabel = [d_part[0]] + d_part[6:10] + h34_part[0:5] + [d_part[5]] + d_part[1:5] + h34_part[5:10]
+    # elif index == 34:
+    #     slabel = [d_part[0]] + d_part[6:10] + [d_part[5]] + d_part[1:5] + h34_part[0:5] + h34_part[5:10]
+    # elif index == 13:
+    #     slabel = h34_part[0:5] + [d_part[0]] + d_part[6:10] + h34_part[5:10] + [d_part[5]] + d_part[1:5]
+    # elif index == 23:
+    #     slabel = [d_part[0]] + d_part[6:10] + h34_part[0:5] + h34_part[5:10] + [d_part[5]] + d_part[1:5]
+    # elif index == 12:
+    #     slabel = h34_part[0:5] + h34_part[5:10] + [d_part[0]] + d_part[6:10] + [d_part[5]] + d_part[1:5]
+
     if index == 14:
-        slabel = h34_part[0:5] + [d_part[0]] + d_part[6:10] + [d_part[5]] + d_part[1:5] + h34_part[5:10]
+        # 14表示不需要交换的部分, d_part是需要交换的部分, d_part = [s2, orb2, x2, y2, z2, s3, orb3, x3, y3, z3]
+        # slabel = hole1 + [s2, orb3, x3, y3, z3] + [s3, orb2, x2, y2, z2] + hole4
+        slabel = h34_part[0:5] + [d_part[5]] + d_part[1:5] + [d_part[0]] + d_part[6:10] + h34_part[5:10]
     elif index == 24:
-        slabel = [d_part[0]] + d_part[6:10] + h34_part[0:5] + [d_part[5]] + d_part[1:5] + h34_part[5:10]
+        slabel = [d_part[5]] + d_part[1:5] + h34_part[0:5] + [d_part[0]] + d_part[6:10] + h34_part[5:10]
     elif index == 34:
-        slabel = [d_part[0]] + d_part[6:10] + [d_part[5]] + d_part[1:5] + h34_part[0:5] + h34_part[5:10]
+        slabel = [d_part[5]] + d_part[1:5] + [d_part[0]] + d_part[6:10] + h34_part[0:5] + h34_part[5:10]
     elif index == 13:
-        slabel = h34_part[0:5] + [d_part[0]] + d_part[6:10] + h34_part[5:10] + [d_part[5]] + d_part[1:5]
+        slabel = h34_part[0:5] + [d_part[5]] + d_part[1:5] + h34_part[5:10] + [d_part[0]] + d_part[6:10]
     elif index == 23:
-        slabel = [d_part[0]] + d_part[6:10] + h34_part[0:5] + h34_part[5:10] + [d_part[5]] + d_part[1:5]
+        slabel = [d_part[5]] + d_part[1:5] + h34_part[0:5] + h34_part[5:10] + [d_part[0]] + d_part[6:10]
     elif index == 12:
-        slabel = h34_part[0:5] + h34_part[5:10] + [d_part[0]] + d_part[6:10] + [d_part[5]] + d_part[1:5]
+        slabel = h34_part[0:5] + h34_part[5:10] + [d_part[5]] + d_part[1:5] + [d_part[0]] + d_part[6:10]
 
     tmp_state = vs.create_state(slabel)
-    partner_state, _, _ = vs.make_state_canonical(tmp_state)
-    phase = 1.0
+    partner_state, phase, _ = vs.make_state_canonical(tmp_state)
 
     return VS.get_index(partner_state), phase
 
@@ -98,30 +112,31 @@ def create_singlet_triplet_basis_change_matrix_d_double(VS, d_double, double_par
                 Sz_d8_val[double_id] = -1
             count_triplet += 1
 
-        elif s1 == 'dn' and s2 == 'up':
-            print('Error: d_double cannot have states with s1=dn, s2=up !')
-            tstate = VS.get_state(VS.lookup_tbl[double_id])
-            ts1 = tstate['hole1_spin']
-            ts2 = tstate['hole2_spin']
-            ts3 = tstate['hole3_spin']
-            ts4 = tstate['hole4_spin']
-            ts5 = tstate['hole5_spin']
-            torb1 = tstate['hole1_orb']
-            torb2 = tstate['hole2_orb']
-            torb3 = tstate['hole3_orb']
-            torb4 = tstate['hole4_orb']
-            torb5 = tstate['hole5_orb']
-            tx1, ty1, tz1 = tstate['hole1_coord']
-            tx2, ty2, tz2 = tstate['hole2_coord']
-            tx3, ty3, tz3 = tstate['hole3_coord']
-            tx4, ty4, tz4 = tstate['hole4_coord']
-            tx5, ty5, tz5 = tstate['hole5_coord']
-            print('Error state', double_id, ts1, torb1, tx1, ty1, tz1, ts2, torb2, tx2, ty2, tz2, ts3, torb3, tx3, ty3,
-                  tz3, ts4, torb4, tx4, ty4, tz4, \
-                  ts5, torb5, tx5, ty5, tz5)
-            break
+        # elif s1 == 'dn' and s2 == 'up':
+        #     print('Error: d_double cannot have states with s1=dn, s2=up !')
+        #     tstate = VS.get_state(VS.lookup_tbl[double_id])
+        #     ts1 = tstate['hole1_spin']
+        #     ts2 = tstate['hole2_spin']
+        #     ts3 = tstate['hole3_spin']
+        #     ts4 = tstate['hole4_spin']
+        #     ts5 = tstate['hole5_spin']
+        #     torb1 = tstate['hole1_orb']
+        #     torb2 = tstate['hole2_orb']
+        #     torb3 = tstate['hole3_orb']
+        #     torb4 = tstate['hole4_orb']
+        #     torb5 = tstate['hole5_orb']
+        #     tx1, ty1, tz1 = tstate['hole1_coord']
+        #     tx2, ty2, tz2 = tstate['hole2_coord']
+        #     tx3, ty3, tz3 = tstate['hole3_coord']
+        #     tx4, ty4, tz4 = tstate['hole4_coord']
+        #     tx5, ty5, tz5 = tstate['hole5_coord']
+        #     print('Error state', double_id, ts1, torb1, tx1, ty1, tz1, ts2, torb2, tx2, ty2, tz2, ts3, torb3, tx3, ty3,
+        #           tz3, ts4, torb4, tx4, ty4, tz4, \
+        #           ts5, torb5, tx5, ty5, tz5)
+        #     break
 
-        elif s1 == 'up' and s2 == 'dn':
+        # elif s1 == 'up' and s2 == 'dn':
+        else:
             if o1 == o2:
                 if o1 != 'dxz' and o1 != 'dyz':
                     data.append(np.sqrt(2.0));
@@ -683,6 +698,7 @@ def create_coupled_representation_matrix(VS, S_Ni_val, Sz_Ni_val, S_Cu_val, Sz_C
     dim = VS.dim
     uncoupled_state = []
     uncoupled_idx = []
+    ph_list = []
     data = []; row = []; col = []
 
     for i in range(dim):
@@ -706,6 +722,10 @@ def create_coupled_representation_matrix(VS, S_Ni_val, Sz_Ni_val, S_Cu_val, Sz_C
                 state.extend(hole)  # 嵌套列表转为不嵌套的列表，即[[], ...] = [...]
                 s = half if hole[0] == 'up' else -half
                 Sz_list.append(s)
+            # 求相位
+            tmp_state = vs.create_state(state)
+            _, ph, _ = vs.make_state_canonical(tmp_state)
+            ph_list.append(ph)
             uncoupled_idx.append(i)
             uncoupled_state.append(tuple(Sz_list))
         else:
@@ -717,6 +737,7 @@ def create_coupled_representation_matrix(VS, S_Ni_val, Sz_Ni_val, S_Cu_val, Sz_C
         for factor, coef in expand.items():
             coef = float(coef)
             idx = uncoupled_state.index(factor)
+            ph = ph_list[idx]
             row_idx = uncoupled_idx[idx]  # 根据展开式的项因子(j1, m1, j2, m2, m3)，找到非耦合表象下态的索引
-            row.append(row_idx); col.append(col_idx); data.append(coef)
+            row.append(row_idx); col.append(col_idx); data.append(ph*coef)
     return sps.coo_matrix((data, (row, col)), shape=(dim, dim)), uncoupled_idx, jm_list
