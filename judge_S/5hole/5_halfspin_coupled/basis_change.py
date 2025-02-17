@@ -25,33 +25,53 @@ def find_singlet_triplet_partner_d_double(VS, d_part, index, h345_part):
     index: index of the singlet/triplet partner state in the VS
     phase: phase factor with which the partner state needs to be multiplied.
     '''
-    if index == 145:
-        slabel = h345_part[0:5] + [d_part[0]] + d_part[6:10] + [d_part[5]] + d_part[1:5] + h345_part[5:15]
-    elif index == 245:
-        slabel = [d_part[0]] + d_part[6:10] + h345_part[0:5] + [d_part[5]] + d_part[1:5] + h345_part[5:15]
-    elif index == 345:
-        slabel = [d_part[0]] + d_part[6:10] + [d_part[5]] + d_part[1:5] + h345_part[0:5] + h345_part[5:15]
-    elif index == 135:
-        slabel = h345_part[0:5] + [d_part[0]] + d_part[6:10] + h345_part[5:10] + [d_part[5]] + d_part[1:5] + h345_part[
-                                                                                                             10:15]
-    elif index == 235:
-        slabel = [d_part[0]] + d_part[6:10] + h345_part[0:5] + h345_part[5:10] + [d_part[5]] + d_part[1:5] + h345_part[
-                                                                                                             10:15]
-    elif index == 125:
-        slabel = h345_part[0:5] + h345_part[5:10] + [d_part[0]] + d_part[6:10] + [d_part[5]] + d_part[1:5] + h345_part[
-                                                                                                             10:15]
-    elif index == 123:
-        slabel = h345_part[0:15] + [d_part[0]] + d_part[6:10] + [d_part[5]] + d_part[1:5]
-    elif index == 124:
-        slabel = h345_part[0:10] + [d_part[0]] + d_part[6:10] + h345_part[10:15] + [d_part[5]] + d_part[1:5]
-    elif index == 134:
-        slabel = h345_part[0:5] + [d_part[0]] + d_part[6:10] + h345_part[5:15] + [d_part[5]] + d_part[1:5]
-    elif index == 234:
-        slabel = [d_part[0]] + d_part[6:10] + h345_part[0:15] + [d_part[5]] + d_part[1:5]
+    # if index == 145:
+    #     slabel = h345_part[0:5] + [d_part[0]] + d_part[6:10] + [d_part[5]] + d_part[1:5] + h345_part[5:15]
+    # elif index == 245:
+    #     slabel = [d_part[0]] + d_part[6:10] + h345_part[0:5] + [d_part[5]] + d_part[1:5] + h345_part[5:15]
+    # elif index == 345:
+    #     slabel = [d_part[0]] + d_part[6:10] + [d_part[5]] + d_part[1:5] + h345_part[0:5] + h345_part[5:15]
+    # elif index == 135:
+    #     slabel = h345_part[0:5] + [d_part[0]] + d_part[6:10] + h345_part[5:10] + [d_part[5]] + d_part[1:5] + h345_part[
+    #                                                                                                          10:15]
+    # elif index == 235:
+    #     slabel = [d_part[0]] + d_part[6:10] + h345_part[0:5] + h345_part[5:10] + [d_part[5]] + d_part[1:5] + h345_part[
+    #                                                                                                          10:15]
+    # elif index == 125:
+    #     slabel = h345_part[0:5] + h345_part[5:10] + [d_part[0]] + d_part[6:10] + [d_part[5]] + d_part[1:5] + h345_part[
+    #                                                                                                          10:15]
+    # elif index == 123:
+    #     slabel = h345_part[0:15] + [d_part[0]] + d_part[6:10] + [d_part[5]] + d_part[1:5]
+    # elif index == 124:
+    #     slabel = h345_part[0:10] + [d_part[0]] + d_part[6:10] + h345_part[10:15] + [d_part[5]] + d_part[1:5]
+    # elif index == 134:
+    #     slabel = h345_part[0:5] + [d_part[0]] + d_part[6:10] + h345_part[5:15] + [d_part[5]] + d_part[1:5]
+    # elif index == 234:
+    #     slabel = [d_part[0]] + d_part[6:10] + h345_part[0:15] + [d_part[5]] + d_part[1:5]
+
+    if index==145:
+        slabel = h345_part[0:5] + [d_part[5]]+d_part[1:5] + [d_part[0]]+d_part[6:10] +h345_part[5:15]
+    elif index==245:
+        slabel = [d_part[5]]+d_part[1:5] + h345_part[0:5] + [d_part[0]]+d_part[6:10] +h345_part[5:15]
+    elif index==345:
+        slabel = [d_part[5]]+d_part[1:5] + [d_part[0]]+d_part[6:10] + h345_part[0:5] + h345_part[5:15]
+    elif index==135:
+        slabel = h345_part[0:5] + [d_part[5]]+d_part[1:5] + h345_part[5:10] + [d_part[0]]+d_part[6:10]+h345_part[10:15]
+    elif index==235:
+        slabel = [d_part[5]]+d_part[1:5] + h345_part[0:5] + h345_part[5:10] + [d_part[0]]+d_part[6:10] + h345_part[10:15]
+    elif index==125:
+        slabel = h345_part[0:5] +h345_part[5:10] + [d_part[5]]+d_part[1:5] +[d_part[0]] + d_part[6:10] + h345_part[10:15]
+    elif index==123:
+        slabel = h345_part[0:15]+ [d_part[5]]+d_part[1:5] + [d_part[0]]+d_part[6:10]
+    elif index==124:
+        slabel = h345_part[0:10]+ [d_part[5]]+d_part[1:5]+ h345_part[10:15]+ [d_part[0]]+d_part[6:10]
+    elif index==134:
+        slabel = h345_part[0:5]+ [d_part[5]]+d_part[1:5] + h345_part[5:15] + [d_part[0]]+d_part[6:10]
+    elif index==234:
+        slabel = [d_part[5]]+d_part[1:5] + h345_part[0:15]+[d_part[0]] + d_part[6:10]
 
     tmp_state = vs.create_state(slabel)
     partner_state, phase, _ = vs.make_state_canonical(tmp_state)
-    phase = 1.0
 
     return VS.get_index(partner_state), phase
 
@@ -757,7 +777,8 @@ def create_coupled_representation_matrix(VS, S_Ni_val, Sz_Ni_val, S_Cu_val, Sz_C
 
     ph_list = []
     for i in range(dim):
-        slabel = [['d3z2r2', 0, 0, 2], ['dx2y2', 0, 0, 2], ['px', 1, 0, 0], ['d3z2r2', 0, 0, 0], ['dx2y2', 0, 0, 0]]
+        # slabel = [['d3z2r2', 0, 0, 2], ['dx2y2', 0, 0, 2], ['d3z2r2', 0, 0, 0], ['dx2y2', 0, 0, 0], ['px', 1, 0, 0]]
+        slabel = [['d3z2r2', 0, 0, 2], ['dx2y2', 0, 0, 2], ['apz', 0, 0, 1], ['d3z2r2', 0, 0, 0], ['dx2y2', 0, 0, 0]]
         start_state = VS.get_state(VS.lookup_tbl[i])
         if_slabel = True
         for num in range(1, 6):
@@ -795,6 +816,6 @@ def create_coupled_representation_matrix(VS, S_Ni_val, Sz_Ni_val, S_Cu_val, Sz_C
             idx = uncoupled_state.index(factor)
             row_idx = uncoupled_idx[idx]  # 根据展开式的项因子(j1, m1, j2, m2, m3)，找到非耦合表象下态的索引
             ph = ph_list[idx]
-            # row.append(row_idx); col.append(col_idx); data.append(ph*coef)
-            row.append(row_idx); col.append(col_idx); data.append(coef)
+            row.append(row_idx); col.append(col_idx); data.append(ph*coef)
+            # row.append(row_idx); col.append(col_idx); data.append(coef)
     return sps.coo_matrix((data, (row, col)), shape=(dim, dim)), uncoupled_idx, jm_list

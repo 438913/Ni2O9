@@ -236,6 +236,7 @@ def get_ground_state(matrix, VS, S_Ni_val, Sz_Ni_val, S_Cu_val, Sz_Cu_val, coupl
     t1 = time.time()
     print('start getting ground state')
     Neval = pam.Neval
+    # 在简并时, 参数k可能会影响简并度的计算(lanczos算法)
     vals, vecs = sps.linalg.eigsh(matrix, k=Neval, which='SA')
     vals.sort()
     print('lowest eigenvalue of H from np.linalg.eigsh = ')
@@ -247,7 +248,7 @@ def get_ground_state(matrix, VS, S_Ni_val, Sz_Ni_val, S_Cu_val, Sz_Cu_val, coupl
             break
     print('Degeneracy of ground state is ', number)
     weight_average = np.average(abs(vecs[:, :number]) ** 2, axis=1)
-    # weight_average = np.average(abs(vecs[:, 4: 6]) ** 2, axis=1)
+    # weight_average = np.average(abs(vecs[:, 4:12]) ** 2, axis=1)
     with open('data/energy_spectrum', 'a') as f:
         f.write('lowest eigenvalue of H from np.linalg.eigsh = \n')
         f.write(str(vals) + '\n\n')
@@ -291,12 +292,13 @@ def get_ground_state(matrix, VS, S_Ni_val, Sz_Ni_val, S_Cu_val, Sz_Cu_val, coupl
                        (x4, y4, z4, orb4, s4), (x5, y5, z5, orb5, s5)]
         position = f'({x1}, {y1}, {z1}), ({x2}, {y2}, {z2}), ({x3}, {y3}, {z3}), ({x4}, {y4}, {z4}), ({x5}, {y5}, {z5})'
         dL_type, orb_type = state_classification(input_state)
-        if istate in coupled_idx:
-            orb_type = orb_type.split(',Sz')[0]
-            idx = coupled_idx.index(istate)
-            j, _ = jm_list[idx]
-            orb_type += f',j = {j}'
-        # dL_type += f'({bonding})'
+        if pam.if_coupled == 1:
+            if istate in coupled_idx:
+                orb_type = orb_type.split(',Sz')[0]
+                idx = coupled_idx.index(istate)
+                j, _ = jm_list[idx]
+                orb_type += f',j = {j}'
+            # dL_type += f'({bonding})'
         orb_type = position + ',' + orb_type
         dL_orb_type = f'{dL_type},{orb_type}'
         if dL_type in dL_weight:
@@ -372,7 +374,7 @@ def get_ground_state(matrix, VS, S_Ni_val, Sz_Ni_val, S_Cu_val, Sz_Cu_val, coupl
                 x3, y3, z3 = state['hole3_coord']
                 x4, y4, z4 = state['hole4_coord']
                 x5, y5, z5 = state['hole5_coord']
-                if istate in coupled_idx:
+                if istate in coupled_idx and pam.if_coupled == 1:
                     idx = coupled_idx.index(istate)
                     output = (
                         f'\t({x1}, {y1}, {z1}, {orb1}, {s1}), ({x2}, {y2}, {z2}, {orb2}, {s2}), ({x3}, {y3}, {z3}, {orb3}, {s3})\n'

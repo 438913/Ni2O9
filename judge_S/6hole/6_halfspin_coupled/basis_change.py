@@ -24,42 +24,41 @@ def find_singlet_triplet_partner_d_double(VS, d_part, index, h3456_part):
     phase: phase factor with which the partner state needs to be multiplied.
     '''
     if index==1456:
-        slabel = h3456_part[0:5] + [d_part[0]]+d_part[6:10] + [d_part[5]]+d_part[1:5] +h3456_part[5:20]
+        slabel = h3456_part[0:5] + [d_part[5]]+d_part[1:5] + [d_part[0]]+d_part[6:10] + h3456_part[5:20]
     elif index==2456:
-        slabel = [d_part[0]]+d_part[6:10] + h3456_part[0:5] + [d_part[5]]+d_part[1:5] +h3456_part[5:20]
+        slabel = [d_part[5]]+d_part[1:5] + h3456_part[0:5] + [d_part[0]]+d_part[6:10] + h3456_part[5:20]
     elif index==3456:
-        slabel = [d_part[0]]+d_part[6:10] + [d_part[5]]+d_part[1:5] + h3456_part[0:5] +h3456_part[5:20]
+        slabel = [d_part[5]]+d_part[1:5] + [d_part[0]]+d_part[6:10] + h3456_part[0:5] + h3456_part[5:20]
     elif index==1356:
-        slabel = h3456_part[0:5] + [d_part[0]]+d_part[6:10]+h3456_part[5:10]  + [d_part[5]]+d_part[1:5]+h3456_part[10:20]
+        slabel = h3456_part[0:5] +  [d_part[5]]+d_part[1:5] + h3456_part[5:10] + [d_part[0]]+d_part[6:10] + h3456_part[10:20]
     elif index==2356:
-        slabel = [d_part[0]]+d_part[6:10] + h3456_part[0:5] +h3456_part[5:10]  +[d_part[5]]+d_part[1:5]+h3456_part[10:20]
+        slabel = [d_part[5]]+d_part[1:5] + h3456_part[0:5] +h3456_part[5:10]  +[d_part[0]]+d_part[6:10]+h3456_part[10:20]
     elif index==1256:
-        slabel = h3456_part[0:5] +h3456_part[5:10] +[d_part[0]]+d_part[6:10] +[d_part[5]]+d_part[1:5]+h3456_part[10:20]  
+        slabel = h3456_part[0:5] +h3456_part[5:10] +[d_part[5]]+d_part[1:5] +[d_part[0]]+d_part[6:10]+h3456_part[10:20]
     elif index==1236:
-        slabel = h3456_part[0:15]+[d_part[0]]+d_part[6:10] +[d_part[5]]+d_part[1:5] + h3456_part[15:20] 
+        slabel = h3456_part[0:15]+ [d_part[5]]+d_part[1:5]+ [d_part[0]]+d_part[6:10]+ h3456_part[15:20]
     elif index==1246:
-        slabel = h3456_part[0:10]+[d_part[0]]+d_part[6:10] + h3456_part[10:15]+[d_part[5]]+d_part[1:5]  + h3456_part[15:20]        
+        slabel = h3456_part[0:10]+ [d_part[5]]+d_part[1:5]+ h3456_part[10:15]+ [d_part[0]]+d_part[6:10] + h3456_part[15:20]
     elif index==1346:
-        slabel = h3456_part[0:5]+[d_part[0]]+d_part[6:10] + h3456_part[5:15]+[d_part[5]]+d_part[1:5] + h3456_part[15:20]            
+        slabel = h3456_part[0:5]+ [d_part[5]]+d_part[1:5]+ h3456_part[5:15]+[d_part[0]]+d_part[6:10] + h3456_part[15:20]
     elif index==2346:
-        slabel = [d_part[0]]+d_part[6:10] + h3456_part[0:15]+[d_part[5]]+d_part[1:5] + h3456_part[15:20]            
+        slabel = [d_part[5]]+d_part[1:5] + h3456_part[0:15]+[d_part[0]]+d_part[6:10] + h3456_part[15:20]
     elif index==1234:
-        slabel = h3456_part[0:20] + [d_part[0]]+d_part[6:10] +  [d_part[5]]+d_part[1:5]
+        slabel = h3456_part[0:20] + [d_part[5]]+d_part[1:5] + [d_part[0]]+d_part[6:10]
     elif index==1235:
-        slabel = h3456_part[0:15] + [d_part[0]]+d_part[6:10] +h3456_part[15:20] +  [d_part[5]]+d_part[1:5] 
+        slabel = h3456_part[0:15] + [d_part[5]]+d_part[1:5] +h3456_part[15:20] + [d_part[0]]+d_part[6:10]
     elif index==1245:
-        slabel = h3456_part[0:10] +  [d_part[0]]+d_part[6:10] +h3456_part[10:20]  + [d_part[5]]+d_part[1:5]
+        slabel = h3456_part[0:10] + [d_part[5]]+d_part[1:5] +h3456_part[10:20] + [d_part[0]]+d_part[6:10]
     elif index==1345:
-        slabel = h3456_part[0:5] + [d_part[0]]+d_part[6:10]  +h3456_part[5:20] +  [d_part[5]]+d_part[1:5]  
+        slabel = h3456_part[0:5] + [d_part[5]]+d_part[1:5] +h3456_part[5:20] + [d_part[0]]+d_part[6:10]
     elif index==2345:
-        slabel = [d_part[0]]+d_part[6:10] +  h3456_part[0:20]+  [d_part[5]]+d_part[1:5]     
+        slabel = [d_part[5]]+d_part[1:5] + h3456_part[0:20] + [d_part[0]]+d_part[6:10]
     
       
         
                         
     tmp_state = vs.create_state(slabel)
-    partner_state,_,_ = vs.make_state_canonical(tmp_state)
-    phase = 1.0
+    partner_state,phase,_ = vs.make_state_canonical(tmp_state)
  
     return VS.get_index(partner_state), phase
 
@@ -115,32 +114,34 @@ def create_singlet_triplet_basis_change_matrix_d_double(VS, d_double, double_par
                 Sz_d8_val[double_id] = -1
             count_triplet += 1
 
-        elif s1=='dn' and s2=='up':
-            print ('Error: d_double cannot have states with s1=dn, s2=up !')
-            tstate = VS.get_state(VS.lookup_tbl[double_id])
-            ts1 = tstate['hole1_spin']
-            ts2 = tstate['hole2_spin']
-            ts3 = tstate['hole3_spin']
-            ts4 = tstate['hole4_spin']  
-            ts5 = tstate['hole5_spin'] 
-            ts6 = tstate['hole6_spin']             
-            torb1 = tstate['hole1_orb']
-            torb2 = tstate['hole2_orb']
-            torb3 = tstate['hole3_orb']
-            torb4 = tstate['hole4_orb']
-            torb5 = tstate['hole5_orb']  
-            torb6 = tstate['hole6_orb']              
-            tx1, ty1, tz1 = tstate['hole1_coord']
-            tx2, ty2, tz2 = tstate['hole2_coord']
-            tx3, ty3, tz3 = tstate['hole3_coord']
-            tx4, ty4, tz4 = tstate['hole4_coord']  
-            tx5, ty5, tz5 = tstate['hole5_coord']    
-            tx6, ty6, tz6 = tstate['hole6_coord']              
-            print ('Error state', double_id,ts1,torb1,tx1,ty1,tz1,ts2,torb2,tx2,ty2,tz2,ts3,torb3,tx3,ty3,tz3,\
-                                                       ts4,torb4,tx4,ty4,tz4,ts5,torb5,tx5,ty5,tz5,ts6,torb6,tx6,ty6,tz6)
-            break
+        # 改变variational_space里面的reorder_state后, 优先判断轨道, 不需要这段代码
+        # elif s1=='dn' and s2=='up':
+        #     print ('Error: d_double cannot have states with s1=dn, s2=up !')
+        #     tstate = VS.get_state(VS.lookup_tbl[double_id])
+        #     ts1 = tstate['hole1_spin']
+        #     ts2 = tstate['hole2_spin']
+        #     ts3 = tstate['hole3_spin']
+        #     ts4 = tstate['hole4_spin']
+        #     ts5 = tstate['hole5_spin']
+        #     ts6 = tstate['hole6_spin']
+        #     torb1 = tstate['hole1_orb']
+        #     torb2 = tstate['hole2_orb']
+        #     torb3 = tstate['hole3_orb']
+        #     torb4 = tstate['hole4_orb']
+        #     torb5 = tstate['hole5_orb']
+        #     torb6 = tstate['hole6_orb']
+        #     tx1, ty1, tz1 = tstate['hole1_coord']
+        #     tx2, ty2, tz2 = tstate['hole2_coord']
+        #     tx3, ty3, tz3 = tstate['hole3_coord']
+        #     tx4, ty4, tz4 = tstate['hole4_coord']
+        #     tx5, ty5, tz5 = tstate['hole5_coord']
+        #     tx6, ty6, tz6 = tstate['hole6_coord']
+        #     print ('Error state', double_id,ts1,torb1,tx1,ty1,tz1,ts2,torb2,tx2,ty2,tz2,ts3,torb3,tx3,ty3,tz3,\
+        #                                                ts4,torb4,tx4,ty4,tz4,ts5,torb5,tx5,ty5,tz5,ts6,torb6,tx6,ty6,tz6)
+        #     break
 
-        elif s1=='up' and s2=='dn':
+        else:
+        # elif s1=='up' and s2=='dn':
             if o1==o2: 
                 if o1!='dxz' and o1!='dyz':
                     data.append(np.sqrt(2.0));  row.append(double_id); col.append(double_id)
@@ -739,9 +740,9 @@ def create_coupled_representation_matrix(VS):
     expand_list = [expand1_list[i] for i in sorted_idx]
 
     # (3). 输出展开式
-    # for i, jm in enumerate(jm_list):
-    #     j, m = jm
-    #     print(f'|{j}, {m}> = {expand_list[i]}')
+    for i, jm in enumerate(jm_list):
+        j, m = jm
+        print(f'|{j}, {m}> = {expand_list[i]}')
 
     # 2. 生成从非耦合表象到耦合表象的变换矩阵
     # (1). 遍历整个态空间(dim维)，找到具有特定位置和dz2dx2_O_dz2dx2轨道的态(需要变换的态)，并存储对应的索引

@@ -107,21 +107,18 @@ def reorder_state(slabel):
         phase = -1.0
         
     # note that z1 can differ from z2 in the presence of two layers
-    elif z1==z2:     
-        if (x1,y1)==(x2,y2):
-            if s1==s2:
-                o12 = list(sorted([orb1,orb2]))
-                if o12[0]==orb2:
-                    state_label = [s2,orb2,x2,y2,z2,s1,orb1,x1,y1,z1]
-                    phase = -1.0  
-            elif s1=='dn' and s2=='up':
-                state_label = ['up',orb2,x2,y2,z2,'dn',orb1,x1,y1,z1]
+    elif z1 == z2:
+        if (x1, y1) == (x2, y2):
+            if orb1 == orb2:
+                if s2 == 'up':
+                    state_label = [s2, orb2, x2, y2, z2, s1, orb1, x1, y1, z1]
+                    phase = -1.0
+            elif orb2 < orb1:
+                state_label = [s2, orb2, x2, y2, z2, s1, orb1, x1, y1, z1]
                 phase = -1.0
-        elif (x2,y2)<(x1,y1):
-            state_label = [s2,orb2,x2,y2,z2,s1,orb1,x1,y1,z1]
-            phase = -1.0  
-
-
+        elif (x2, y2) < (x1, y1):
+            state_label = [s2, orb2, x2, y2, z2, s1, orb1, x1, y1, z1]
+            phase = -1.0
             
     return state_label, phase
                 

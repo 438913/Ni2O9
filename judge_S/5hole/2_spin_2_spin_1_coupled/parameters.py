@@ -48,13 +48,16 @@ if Norb == 8 or Norb == 5:
 
     tpds_list = [1.38, 1.43, 1.46, 1.52, 1.58]
     # tpds_list = np.linspace(0, 4.2, num=22, endpoint=True)
+    # tpds_list = [0, 0, 0, 0, 0.6]
     tpps_list = [0.537, 0.548, 0.554, 0.566, 0.562]
     # tpps_list = [0.537, 0.548, 0.554, 0.566, 0.0]
 
     tapzds_list = [1.48, 1.53, 1.55, 1.61, 1.66]
+    # tapzds_list = [0, 0, 0, 0, 0.0]
     # tapzds_list = np.linspace(0, 4.2, num=22, endpoint=True)
 
     tapzps_list = [0.445, 0.458, 0.468, 0.484, 0.487]
+    # tapzps_list = [0, 0, 0, 0, 0.0]
 
     tz_a1a1 = 0.028
     # tz_a1a1 = 0.0
@@ -116,7 +119,7 @@ if if_compute_Aw == 1:
 if_get_ground_state = 1
 if if_get_ground_state == 1:
     # see issue https://github.com/scipy/scipy/issues/5612
-    Neval = 20
+    Neval = 40
 if_compute_Aw_dd_total = 0
 
 if Norb == 8 or Norb == 10 or Norb == 12:
